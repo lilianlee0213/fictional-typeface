@@ -18,3 +18,15 @@
 	font-family: fic900;
 	src: url(./fonts/FictionalTrial-UltraBold.otf);
 }
+
+:root {
+	--white: #ffffff;
+	--red: #fd4b38;
+	--yellow: #ffd80c;
+	--green: #3ccb09;
+	--blue: #0500a3;
+	--purple: #8a53ff;
+	--black: #222222;
+	--text-dark: #000000;
+	--bg-color: #ffe9ce;
+}
