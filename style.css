@@ -62,13 +62,32 @@ body {
 	aspect-ratio: 1;
 	border-radius: 100%;
 }
-.sticker-1 .round {
-	background-color: var(--green);
+.speechbubble {
+	width: 65vw;
+	padding: 15px 20px;
+	border-radius: 30px;
+	text-align: center;
+	background-color: var(--white);
+}
+.speechtriangle {
+	position: absolute;
+	width: 30%;
+	height: 25px;
+}
+polygon {
+	fill: var(--white);
 }
 .text {
 	font-family: fic700;
 	text-transform: uppercase;
 	text-align: center;
+}
+.text-cap {
+	font-family: fic500;
+	font-size: 4vw;
+}
+.sticker-1 .round {
+	background-color: var(--green);
 }
 .round .text {
 	font-size: 7vw;
@@ -95,4 +114,13 @@ body {
 
 .sticker-3 .round {
 	background-color: var(--purple);
+}
+
+.sticker-4 {
+	position: relative;
+}
+.sticker-4 .speechtriangle {
+	transform: rotate(85deg);
+	bottom: -20px;
+	right: 50px;
 }
