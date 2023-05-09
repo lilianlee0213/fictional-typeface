@@ -61,14 +61,17 @@ body {
 	width: 30vw;
 	aspect-ratio: 1;
 	border-radius: 100%;
+}
+.sticker-1 .round {
 	background-color: var(--green);
 }
 .text {
 	font-family: fic700;
 	text-transform: uppercase;
+	text-align: center;
 }
 .round .text {
-	font-size: 9vw;
+	font-size: 7vw;
 	color: var(--white);
 }
 .sticker-2 {
@@ -88,4 +91,8 @@ body {
 }
 .sticker-2 .shout path {
 	fill: var(--red);
+}
+
+.sticker-3 .round {
+	background-color: var(--purple);
 }
