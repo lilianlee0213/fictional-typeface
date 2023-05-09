@@ -1,0 +1,20 @@
+@font-face {
+	font-family: fic300;
+	src: url(./fonts/FictionalTrial-Light.otf);
+}
+@font-face {
+	font-family: fic400;
+	src: url(./fonts/FictionalTrial-Regular.otf);
+}
+@font-face {
+	font-family: fic500;
+	src: url(./fonts/FictionalTrial-SemiBold.otf);
+}
+@font-face {
+	font-family: fic700;
+	src: url(./fonts/FictionalTrial-Bold.otf);
+}
+@font-face {
+	font-family: fic900;
+	src: url(./fonts/FictionalTrial-UltraBold.otf);
+}
