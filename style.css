@@ -77,6 +77,14 @@ body {
 polygon {
 	fill: var(--white);
 }
+.label {
+	padding: 10px;
+	border-radius: 8px;
+	width: fit-content;
+}
+.label .text {
+	font-size: 3vw;
+}
 .text {
 	font-family: fic700;
 	text-transform: uppercase;
@@ -123,4 +131,7 @@ polygon {
 	transform: rotate(85deg);
 	bottom: -20px;
 	right: 50px;
+}
+.sticker-5 .label {
+	background-color: var(--green);
 }
