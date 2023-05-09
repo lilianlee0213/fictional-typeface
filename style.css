@@ -30,3 +30,62 @@
 	--text-dark: #000000;
 	--bg-color: #ffe9ce;
 }
+.flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+body {
+	padding: 20px;
+	background-color: var(--white);
+}
+.section {
+	border-radius: 15px;
+	height: calc(100vh - 40px);
+}
+.section.intro {
+	position: relative;
+	background-color: var(--bg-color);
+}
+.title {
+	font-size: 18vw;
+	font-family: fic700;
+	color: var(--text-dark);
+}
+.sticker-container {
+	position: absolute;
+}
+
+.round {
+	width: 30vw;
+	aspect-ratio: 1;
+	border-radius: 100%;
+	background-color: var(--green);
+}
+.text {
+	font-family: fic700;
+	text-transform: uppercase;
+}
+.round .text {
+	font-size: 9vw;
+	color: var(--white);
+}
+.sticker-2 {
+	position: relative;
+	transform: rotate(15deg);
+}
+.sticker-2 .text {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	font-size: 7vw;
+	color: var(--white);
+}
+.sticker-2 .shout {
+	width: 60vw;
+}
+.sticker-2 .shout path {
+	fill: var(--red);
+}
