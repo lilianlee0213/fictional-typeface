@@ -78,9 +78,9 @@ polygon {
 	fill: var(--white);
 }
 .label {
-	padding: 10px;
-	border-radius: 8px;
 	width: fit-content;
+	padding: 10px 14px;
+	border-radius: 8px;
 }
 .label .text {
 	font-size: 3vw;
@@ -101,17 +101,25 @@ polygon {
 	font-size: 7vw;
 	color: var(--white);
 }
-.sticker-2 {
+.sticker-2,
+.sticker-4,
+.sticker-6,
+.sticker-8 {
 	position: relative;
-	transform: rotate(15deg);
 }
-.sticker-2 .text {
+.sticker-2 {
+	text-align: center;
+	transform: rotate(12deg);
+	font-size: 7vw;
+	color: var(--white);
+}
+.sticker-2 .text,
+.sticker-8 .text {
 	position: absolute;
 	top: 50%;
 	right: 50%;
 	transform: translate(50%, -50%);
 	font-size: 7vw;
-	color: var(--white);
 }
 .sticker-2 .shout {
 	width: 60vw;
@@ -119,13 +127,8 @@ polygon {
 .sticker-2 .shout path {
 	fill: var(--red);
 }
-
 .sticker-3 .round {
 	background-color: var(--purple);
-}
-
-.sticker-4 {
-	position: relative;
 }
 .sticker-4 .speechtriangle {
 	transform: rotate(85deg);
@@ -134,4 +137,32 @@ polygon {
 }
 .sticker-5 .label {
 	background-color: var(--green);
+}
+.sticker-6 .speechtriangle {
+	top: -20px;
+	left: 30px;
+	transform: rotate(-10deg);
+}
+.sticker-7 .label {
+	background-color: var(--red);
+}
+.sticker-8 .shout {
+	width: 45vw;
+}
+.sticker-8 .shout path {
+	fill: var(--yellow);
+}
+.sticker-8 {
+	transform: rotate(-12deg);
+	color: var(--blue);
+	text-align: center;
+}
+.sticker-9 .round {
+	background-color: var(--purple);
+}
+.sticker-9 .round .text {
+	font-family: fic400;
+	text-transform: lowercase;
+	font-size: 6vw;
+	color: var(--white);
 }
