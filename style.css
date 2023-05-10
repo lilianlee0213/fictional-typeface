@@ -55,16 +55,24 @@ body {
 }
 .sticker-container {
 	position: absolute;
+	height: 100%;
+	width: 100%;
 }
-
+.sticker {
+	position: absolute;
+}
 .round {
 	width: 30vw;
 	aspect-ratio: 1;
 	border-radius: 100%;
 }
+.round .text {
+	font-size: 7vw;
+	color: var(--white);
+}
 .speechbubble {
 	width: 65vw;
-	padding: 15px 20px;
+	padding: 3vw;
 	border-radius: 30px;
 	text-align: center;
 	background-color: var(--white);
@@ -79,7 +87,7 @@ polygon {
 }
 .label {
 	width: fit-content;
-	padding: 10px 14px;
+	padding: 2vw;
 	border-radius: 8px;
 }
 .label .text {
@@ -94,20 +102,18 @@ polygon {
 	font-family: fic500;
 	font-size: 4vw;
 }
+.sticker-1 {
+	top: 2%;
+	left: 2%;
+	transform: rotate(-25deg);
+	z-index: 1;
+}
 .sticker-1 .round {
 	background-color: var(--green);
 }
-.round .text {
-	font-size: 7vw;
-	color: var(--white);
-}
-.sticker-2,
-.sticker-4,
-.sticker-6,
-.sticker-8 {
-	position: relative;
-}
 .sticker-2 {
+	top: 0;
+	left: 25%;
 	text-align: center;
 	transform: rotate(12deg);
 	font-size: 7vw;
@@ -122,29 +128,62 @@ polygon {
 	font-size: 7vw;
 }
 .sticker-2 .shout {
-	width: 60vw;
+	width: 50vw;
 }
 .sticker-2 .shout path {
 	fill: var(--red);
 }
+.sticker-3 {
+	top: 14%;
+	right: -2%;
+	transform: rotate(30deg);
+}
 .sticker-3 .round {
 	background-color: var(--purple);
 }
+.sticker-4 {
+	top: 32%;
+	left: 3%;
+	transform: rotate(-5deg);
+}
 .sticker-4 .speechtriangle {
-	transform: rotate(85deg);
 	bottom: -20px;
 	right: 50px;
+	transform: rotate(85deg);
+}
+.sticker-5 {
+	top: 40%;
+	right: -1%;
+	transform: rotate(7deg);
 }
 .sticker-5 .label {
 	background-color: var(--green);
+}
+.sticker-6 {
+	bottom: 30%;
+	left: 25%;
+	transform: rotate(5deg);
 }
 .sticker-6 .speechtriangle {
 	top: -20px;
 	left: 30px;
 	transform: rotate(-10deg);
 }
+.sticker-7 {
+	bottom: 20%;
+	left: 1%;
+	transform: rotate(-15deg);
+	z-index: 1;
+}
 .sticker-7 .label {
 	background-color: var(--red);
+}
+.sticker-8 {
+	bottom: -2%;
+	left: 25%;
+	transform: rotate(-12deg);
+	color: var(--blue);
+	text-align: center;
 }
 .sticker-8 .shout {
 	width: 45vw;
@@ -152,10 +191,10 @@ polygon {
 .sticker-8 .shout path {
 	fill: var(--yellow);
 }
-.sticker-8 {
-	transform: rotate(-12deg);
-	color: var(--blue);
-	text-align: center;
+.sticker-9 {
+	bottom: -1%;
+	right: -1%;
+	transform: rotate(8deg);
 }
 .sticker-9 .round {
 	background-color: var(--purple);
