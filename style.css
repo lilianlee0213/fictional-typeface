@@ -39,17 +39,18 @@
 body {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
+	gap: 20px;
 	padding: 20px;
 	background-color: var(--white);
 }
 .section {
 	border-radius: 15px;
-	height: calc(100vh - 40px);
 }
 /* ---------------Section Intro--------------- */
 .section.intro {
 	position: relative;
 	grid-column: 1 / span 12;
+	height: calc(100vh - 40px);
 	background-color: var(--bg-color);
 }
 .title {
@@ -288,5 +289,52 @@ polygon {
 	.sticker-9 {
 		right: 48%;
 		bottom: 2%;
+	}
+}
+
+/* ---------------Section Styles--------------- */
+.section.styles {
+	grid-column: 1 / span 12;
+	gap: 25px;
+	padding: 5vw;
+	background-color: var(--purple);
+}
+.style-btn {
+	font-size: 6vw;
+	color: var(--white);
+	transition: all 0.2s ease-in-out;
+}
+.style-btn:hover {
+	transform: scale(1.35);
+	text-shadow: rgba(0, 0, 0, 0.3) 4px 4px 0px;
+}
+
+.light-btn {
+	font-family: fic300;
+	transform: rotate(4deg);
+}
+.regular-btn {
+	font-family: fic400;
+	transform: rotate(-2deg);
+}
+.semiBold-btn {
+	font-family: fic500;
+	transform: rotate(3deg);
+}
+.bold-btn {
+	font-family: fic700;
+	transform: rotate(-3deg);
+}
+.ultraBold-btn {
+	font-family: fic900;
+	transform: rotate(2deg);
+}
+
+@media (min-width: 701px) {
+	.section.styles {
+		grid-column: 1 / span 6;
+	}
+	.style-btn {
+		font-size: 3.5vw;
 	}
 }
