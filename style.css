@@ -45,11 +45,17 @@ body {
 }
 .section {
 	border-radius: 15px;
+	grid-column: 1 / span 12;
+}
+.section.styles,
+.section.textBox,
+.section.charset,
+.section.info {
+	padding: 5vw;
 }
 /* ---------------Section Intro--------------- */
 .section.intro {
 	position: relative;
-	grid-column: 1 / span 12;
 	height: calc(100vh - 40px);
 	background-color: var(--bg-color);
 }
@@ -294,9 +300,7 @@ polygon {
 
 /* ---------------Section Styles--------------- */
 .section.styles {
-	grid-column: 1 / span 12;
 	gap: 25px;
-	padding: 5vw;
 	background-color: var(--purple);
 }
 .style-btn {
@@ -332,7 +336,7 @@ polygon {
 
 @media (min-width: 701px) {
 	.section.styles {
-		grid-column: 1 / span 6;
+		grid-column: span 6;
 	}
 	.style-btn {
 		font-size: 3.5vw;
@@ -341,9 +345,7 @@ polygon {
 /* ---------------Section TextBox--------------- */
 
 .section.textBox {
-	grid-column: 1 / span 12;
 	gap: 30px;
-	padding: 5vw;
 	background-color: var(--yellow);
 }
 .textBox-text {
@@ -374,7 +376,7 @@ input[type='range']::-webkit-slider-thumb {
 
 @media (min-width: 701px) {
 	.section.textBox {
-		grid-column: 7 / span 6;
+		grid-column: span 6;
 	}
 	.textBox-text {
 		font-size: 2.5vw;
@@ -392,9 +394,7 @@ input[type='range']::-webkit-slider-thumb {
 }
 /* ---------------Section Charset--------------- */
 .section.charset {
-	grid-column: 1 / span 12;
 	background-color: var(--red);
-	padding: 5vw;
 }
 .charset-overview ul {
 	display: grid;
@@ -441,7 +441,6 @@ input[type='range']::-webkit-slider-thumb {
 }
 @media (min-width: 701px) {
 	.section.charset {
-		grid-column: 1 / span 12;
 		display: flex;
 		gap: 80px;
 	}
@@ -473,7 +472,6 @@ input[type='range']::-webkit-slider-thumb {
 .section.info {
 	grid-column: 1 / span 12;
 	background-color: var(--green);
-	padding: 5vw;
 }
 .info-link {
 	border-radius: 25px;
@@ -497,7 +495,6 @@ input[type='range']::-webkit-slider-thumb {
 
 /* ---------------Section buyNow--------------- */
 .section.buyNow {
-	grid-column: 1 / span 12;
 	height: 40vh;
 	position: relative;
 }
@@ -507,7 +504,7 @@ input[type='range']::-webkit-slider-thumb {
 	font-family: fic900;
 	text-align: center;
 	color: var(--blue);
-	transition: all 0.2s ease-in-out;
+	transition: all 0.25s ease-in-out;
 }
 .buyNow .sticker:hover {
 	transform: rotate(-15deg);
@@ -518,8 +515,9 @@ input[type='range']::-webkit-slider-thumb {
 }
 .buyNow .text {
 	position: absolute;
-	top: 20%;
-	left: 0;
+	top: 25%;
+	left: 25%;
+	width: 50%;
 	font-size: 20vw;
 	transition: all 0.2s ease-in-out;
 }
@@ -541,7 +539,6 @@ input[type='range']::-webkit-slider-thumb {
 	.buyNow .text {
 		top: 32%;
 		left: 25%;
-		width: 50%;
 		font-size: 6vw;
 	}
 	.buyNow .sticker:hover > .text {
