@@ -475,17 +475,80 @@ input[type='range']::-webkit-slider-thumb {
 	padding: 5vw;
 }
 .info-link {
-	border-radius: 20px;
+	border-radius: 25px;
 	text-decoration: underline;
 	transition: background-color 0.3s ease-in-out;
 }
+
 .info-link:hover {
-	padding: 0.2vw 2vw 1vw;
 	text-decoration: inherit;
 	background-color: var(--white);
 }
 @media (min-width: 701px) {
 	.section.info {
 		grid-column: 1 / span 8;
+	}
+	.info .textBox-text {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
+
+/* ---------------Section buyNow--------------- */
+.section.buyNow {
+	grid-column: 1 / span 12;
+	position: relative;
+	height: 50vh;
+}
+.buyNow .sticker {
+	bottom: -10%;
+	transform: rotate(15deg);
+	font-family: fic900;
+	text-align: center;
+	color: var(--blue);
+	transition: all 0.2s ease-in-out;
+}
+.buyNow .sticker:hover {
+	transform: rotate(-15deg);
+	scale: 1.2;
+}
+
+.buyNow .sticker .shout {
+	width: 100vw;
+}
+.buyNow .sticker path {
+	fill: var(--yellow);
+}
+.buyNow .sticker .text {
+	position: absolute;
+	top: 50%;
+	right: 50%;
+	transform: translate(50%, -50%);
+	font-size: 20vw;
+	transition: all 0.2s ease-in-out;
+}
+.buyNow .sticker:hover > .text {
+	font-size: 25vw;
+}
+@media (min-width: 701px) {
+	.section.buyNow {
+		height: auto;
+	}
+	.buyNow .sticker {
+		bottom: 0;
+		right: 0;
+		transform: rotate(15deg);
+		font-family: fic900;
+		text-align: center;
+		color: var(--blue);
+	}
+	.buyNow .sticker .shout {
+		width: 40vw;
+	}
+	.buyNow .sticker .text {
+		font-size: 5vw;
+	}
+	.buyNow .sticker:hover > .text {
+		font-size: 8vw;
 	}
 }
