@@ -18,7 +18,6 @@
 	font-family: fic900;
 	src: url(./fonts/FictionalTrial-UltraBold.otf);
 }
-
 :root {
 	--white: #ffffff;
 	--red: #fd4b38;
@@ -336,5 +335,57 @@ polygon {
 	}
 	.style-btn {
 		font-size: 3.5vw;
+	}
+}
+/* ---------------Section TextBox--------------- */
+
+.section.textBox {
+	grid-column: 1 / span 12;
+	gap: 30px;
+	padding: 5vw;
+	background-color: var(--yellow);
+}
+.textBox-text {
+	width: 90%;
+	text-align: center;
+	font-family: fic400;
+	font-size: 5vw;
+	line-height: 1.3;
+	color: var(--text-dark);
+}
+.textBox-text p {
+	margin-bottom: 25px;
+}
+input[type='range'] {
+	appearance: none;
+	height: 4px;
+	width: 70%;
+	background-color: var(--text-dark);
+}
+input[type='range']::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 7vw;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: var(--text-dark);
+	cursor: pointer;
+}
+
+@media (min-width: 701px) {
+	.section.textBox {
+		grid-column: 7 / span 6;
+	}
+	.textBox-text {
+		font-size: 2.5vw;
+	}
+	.textBox-text p {
+		margin-bottom: 40px;
+	}
+	input[type='range']::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		aspect-ratio: 1;
+		width: 3vw;
+		border-radius: 50%;
+		background: var(--text-dark);
 	}
 }
