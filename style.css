@@ -55,7 +55,7 @@ body {
 }
 .sticker-container {
 	position: absolute;
-	height: 100%;
+	height: 95%;
 	width: 100%;
 }
 .sticker {
@@ -73,7 +73,7 @@ body {
 .speechbubble {
 	width: 65vw;
 	padding: 3vw;
-	border-radius: 30px;
+	border-radius: 50px;
 	text-align: center;
 	background-color: var(--white);
 }
@@ -115,8 +115,8 @@ polygon {
 	top: 0;
 	left: 25%;
 	text-align: center;
-	transform: rotate(12deg);
-	font-size: 7vw;
+	transform: rotate(10deg);
+	height: 20;
 	color: var(--white);
 }
 .sticker-2 .text,
@@ -125,7 +125,7 @@ polygon {
 	top: 50%;
 	right: 50%;
 	transform: translate(50%, -50%);
-	font-size: 7vw;
+	font-size: 6vw;
 }
 .sticker-2 .shout {
 	width: 50vw;
@@ -144,7 +144,7 @@ polygon {
 .sticker-4 {
 	top: 32%;
 	left: 3%;
-	transform: rotate(-5deg);
+	transform: rotate(-8deg);
 }
 .sticker-4 .speechtriangle {
 	bottom: -20px;
@@ -154,7 +154,7 @@ polygon {
 .sticker-5 {
 	top: 40%;
 	right: -1%;
-	transform: rotate(7deg);
+	transform: rotate(10deg);
 }
 .sticker-5 .label {
 	background-color: var(--green);
@@ -181,9 +181,10 @@ polygon {
 .sticker-8 {
 	bottom: -2%;
 	left: 25%;
-	transform: rotate(-12deg);
-	color: var(--blue);
+	transform: rotate(-18deg);
+	font-family: fic900;
 	text-align: center;
+	color: var(--blue);
 }
 .sticker-8 .shout {
 	width: 45vw;
@@ -202,6 +203,86 @@ polygon {
 .sticker-9 .round .text {
 	font-family: fic400;
 	text-transform: lowercase;
-	font-size: 6vw;
-	color: var(--white);
+}
+
+@media (min-width: 701px) {
+	.section.intro {
+		overflow: hidden;
+	}
+	.title {
+		font-size: 14vw;
+		z-index: 1;
+	}
+	.sticker-container {
+		height: min(50vw, 100%);
+	}
+	.round {
+		width: 10vw;
+	}
+	.round .text {
+		font-size: 2.5vw;
+	}
+	.speechbubble {
+		width: 35vw;
+		padding: 2.2vw;
+		border-radius: 60px;
+	}
+	.label {
+		padding: 1vw 2vw;
+	}
+	.label .text {
+		font-size: 1.5vw;
+	}
+	.text-cap {
+		font-size: 2.2vw;
+	}
+	.sticker-1 {
+		top: 36%;
+		left: 8%;
+	}
+	.sticker-2 {
+		top: 0;
+		left: 42%;
+	}
+	.sticker-2 .shout {
+		width: 23vw;
+	}
+	.sticker-2 .text {
+		font-size: 2vw;
+	}
+	.sticker-3 {
+		top: 28%;
+		right: 10%;
+	}
+	.sticker-4 {
+		top: 23%;
+		left: 5%;
+	}
+	.sticker-5 {
+		top: 30%;
+		right: 22%;
+	}
+	.sticker-6 {
+		left: 51%;
+		bottom: 17%;
+	}
+	.sticker-7 {
+		bottom: 32%;
+		left: inherit;
+		right: 7%;
+	}
+	.sticker-8 {
+		left: 20%;
+		bottom: 1%;
+	}
+	.sticker-8 .shout {
+		width: 28vw;
+	}
+	.sticker-8 .text {
+		font-size: 4vw;
+	}
+	.sticker-9 {
+		right: 48%;
+		bottom: 2%;
+	}
 }
