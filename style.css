@@ -41,6 +41,7 @@ body {
 	gap: 20px;
 	padding: 20px;
 	background-color: var(--white);
+	overflow-x: hidden;
 }
 .section {
 	border-radius: 15px;
@@ -497,11 +498,11 @@ input[type='range']::-webkit-slider-thumb {
 /* ---------------Section buyNow--------------- */
 .section.buyNow {
 	grid-column: 1 / span 12;
+	height: 40vh;
 	position: relative;
-	height: 50vh;
 }
 .buyNow .sticker {
-	bottom: -10%;
+	width: 100%;
 	transform: rotate(15deg);
 	font-family: fic900;
 	text-align: center;
@@ -510,43 +511,38 @@ input[type='range']::-webkit-slider-thumb {
 }
 .buyNow .sticker:hover {
 	transform: rotate(-15deg);
-	scale: 1.2;
-}
-
-.buyNow .sticker .shout {
-	width: 100vw;
+	scale: 1.4;
 }
 .buyNow .sticker path {
 	fill: var(--yellow);
 }
-.buyNow .sticker .text {
+.buyNow .text {
 	position: absolute;
-	top: 50%;
-	right: 50%;
-	transform: translate(50%, -50%);
+	top: 20%;
+	left: 0;
 	font-size: 20vw;
 	transition: all 0.2s ease-in-out;
 }
 .buyNow .sticker:hover > .text {
-	font-size: 25vw;
+	font-size: 22vw;
 }
+
 @media (min-width: 701px) {
 	.section.buyNow {
+		grid-column: span 4;
 		height: auto;
 	}
 	.buyNow .sticker {
-		bottom: 0;
-		right: 0;
-		transform: rotate(15deg);
-		font-family: fic900;
-		text-align: center;
-		color: var(--blue);
-	}
-	.buyNow .sticker .shout {
+		position: absolute;
+		top: -20%;
+		right: 2%;
 		width: 40vw;
 	}
-	.buyNow .sticker .text {
-		font-size: 5vw;
+	.buyNow .text {
+		top: 32%;
+		left: 25%;
+		width: 50%;
+		font-size: 6vw;
 	}
 	.buyNow .sticker:hover > .text {
 		font-size: 8vw;
