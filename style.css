@@ -37,6 +37,8 @@
 	align-items: center;
 }
 body {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
 	padding: 20px;
 	background-color: var(--white);
 }
@@ -44,8 +46,10 @@ body {
 	border-radius: 15px;
 	height: calc(100vh - 40px);
 }
+/* ---------------Section Intro--------------- */
 .section.intro {
 	position: relative;
+	grid-column: 1 / span 12;
 	background-color: var(--bg-color);
 }
 .title {
