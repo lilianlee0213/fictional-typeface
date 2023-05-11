@@ -425,7 +425,7 @@ input[type='range']::-webkit-slider-thumb {
 	color: var(--text-dark);
 }
 .charset-detail {
-	/* display: none; */
+	display: none;
 	position: fixed;
 	bottom: 5%;
 	background-color: var(--yellow);
@@ -465,5 +465,27 @@ input[type='range']::-webkit-slider-thumb {
 	.charset-detail span {
 		font-size: 28vw;
 		color: var(--white);
+	}
+}
+
+/* ---------------Section Info--------------- */
+.section.info {
+	grid-column: 1 / span 12;
+	background-color: var(--green);
+	padding: 5vw;
+}
+.info-link {
+	border-radius: 20px;
+	text-decoration: underline;
+	transition: background-color 0.3s ease-in-out;
+}
+.info-link:hover {
+	padding: 0.2vw 2vw 1vw;
+	text-decoration: inherit;
+	background-color: var(--white);
+}
+@media (min-width: 701px) {
+	.section.info {
+		grid-column: 1 / span 8;
 	}
 }
