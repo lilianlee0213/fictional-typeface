@@ -1,3 +1,22 @@
+const fictionalText = 'Fictional';
+let textArray = fictionalText.split('');
+
+function displayText() {
+	let currentChar = textArray.shift();
+	const title = document.getElementById('title');
+	if (currentChar !== undefined) {
+		let span = document.createElement('span');
+		const index = Math.abs(textArray.length - 300);
+		span.innerHTML = currentChar;
+		span.style.animation = `title-animation ${index}ms ease`;
+		setTimeout(() => {
+			title.appendChild(span);
+			displayText();
+		}, 200);
+	}
+}
+displayText();
+
 const charsets = [
 	'A',
 	'B',

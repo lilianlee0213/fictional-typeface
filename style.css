@@ -18,6 +18,18 @@
 	font-family: fic900;
 	src: url(./fonts/FictionalTrial-UltraBold.otf);
 }
+/* ANIMATIONS */
+@keyframes title-animation {
+	0% {
+		opacity: 0;
+		font-family: fic300;
+	}
+	100% {
+		opacity: 1;
+		font-family: fic700;
+	}
+}
+
 :root {
 	--white: #ffffff;
 	--red: #fd4b38;
@@ -64,6 +76,7 @@ body {
 	font-family: fic700;
 	color: var(--text-dark);
 }
+
 .sticker-container {
 	position: absolute;
 	height: 95%;
@@ -215,7 +228,6 @@ polygon {
 	font-family: fic400;
 	text-transform: lowercase;
 }
-
 @media (min-width: 701px) {
 	.section.intro {
 		overflow: hidden;
