@@ -6,11 +6,13 @@ function displayText() {
 	const title = document.getElementById('title');
 	if (currentChar !== undefined) {
 		let span = document.createElement('span');
-		const index = Math.abs(textArray.length - 300);
+		const index = Math.abs(textArray.length - 8) + 1;
 		span.innerHTML = currentChar;
-		span.style.animation = `title-animation ${index}ms ease`;
+		span.style.animation = `title-animation ${index * 0.05}s`;
+
 		setTimeout(() => {
 			title.appendChild(span);
+
 			displayText();
 		}, 200);
 	}
