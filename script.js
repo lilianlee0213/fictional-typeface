@@ -85,17 +85,33 @@ function displayText() {
 }
 displayText();
 
+//Styles Font Weight Click Event
+const styleBox = document.querySelector('.styles');
+styleBox.addEventListener('click', (e) => {
+	const weight = e.target.dataset.fw;
+	textBox.style.fontFamily = weight;
+	weightInput.value =
+		weight === 'fic300'
+			? 0
+			: weight === 'fic400'
+			? 30
+			: weight === 'fic500'
+			? 60
+			: weight === 'fic700'
+			? 90
+			: 120;
+});
 //TextBox Font Weight Change Event
 weightInput.addEventListener('input', () => {
 	const weight = parseInt(weightInput.value);
 	textBox.style.fontFamily =
-		weight < 20
+		weight < 25
 			? 'fic300'
 			: weight < 50
 			? 'fic400'
-			: weight < 70
+			: weight < 75
 			? 'fic500'
-			: weight < 90
+			: weight < 100
 			? 'fic700'
 			: 'fic900';
 });
