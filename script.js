@@ -1,9 +1,3 @@
-const fictionalText = 'Fictional';
-const textArray = fictionalText.split('');
-const title = document.getElementById('title');
-const charsetList = document.getElementById('charsets');
-const charsetDetail = document.querySelector('.charset-detail span');
-
 const charsets = [
 	'A',
 	'B',
@@ -68,6 +62,13 @@ const charsets = [
 	8,
 	9,
 ];
+const title = document.getElementById('title');
+const textBox = document.querySelector('.textBox-text');
+const weightInput = document.getElementById('weight-input');
+const charsetList = document.getElementById('charsets');
+const charsetDetail = document.querySelector('.charset-detail span');
+const fictionalText = 'Fictional';
+const textArray = fictionalText.split('');
 
 function displayText() {
 	let currentChar = textArray.shift();
@@ -78,13 +79,28 @@ function displayText() {
 		span.style.animation = `title-animation ${index * 0.05}s`;
 		setTimeout(() => {
 			title.appendChild(span);
-
 			displayText();
 		}, 200);
 	}
 }
 displayText();
 
+//TextBox Font Weight Change Event
+weightInput.addEventListener('input', () => {
+	const weight = parseInt(weightInput.value);
+	textBox.style.fontFamily =
+		weight < 20
+			? 'fic300'
+			: weight < 50
+			? 'fic400'
+			: weight < 70
+			? 'fic500'
+			: weight < 90
+			? 'fic700'
+			: 'fic900';
+});
+
+// Charset Html and Animation
 const charsetHtml = charsets
 	.map(
 		(charset) => `
