@@ -29,6 +29,23 @@
 		font-family: fic700;
 	}
 }
+@keyframes charset-animation {
+	0% {
+		font-family: fic500;
+		transform: scale(0.4);
+		text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px;
+	}
+	70% {
+		font-family: fic900;
+		transform: scale(1.4);
+		text-shadow: rgba(0, 0, 0, 0.3) 2vw 2vw 0px;
+	}
+	100% {
+		font-family: fic700;
+		transform: scale(1);
+		text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px;
+	}
+}
 
 :root {
 	--white: #ffffff;
@@ -438,7 +455,7 @@ input[type='range']::-webkit-slider-thumb {
 	color: var(--text-dark);
 }
 .charset-detail {
-	display: none;
+	/* display: none; */
 	position: fixed;
 	bottom: 5%;
 	background-color: var(--yellow);
@@ -450,6 +467,9 @@ input[type='range']::-webkit-slider-thumb {
 	font-family: fic500;
 	font-size: 25vw;
 	color: var(--text-dark);
+}
+.charset-popUp {
+	animation: charset-animation 0.4s cubic-bezier(0, 1.56, 0.64, 1) forwards;
 }
 @media (min-width: 701px) {
 	.section.charset {
@@ -471,10 +491,12 @@ input[type='range']::-webkit-slider-thumb {
 		font-size: 2vw;
 	}
 	.charset-detail {
-		position: inherit;
+		position: relative;
 		background-color: transparent;
 	}
 	.charset-detail span {
+		position: absolute;
+		bottom: 3%;
 		font-size: 28vw;
 		color: var(--white);
 	}

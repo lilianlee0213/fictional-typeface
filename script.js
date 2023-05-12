@@ -1,23 +1,8 @@
 const fictionalText = 'Fictional';
-let textArray = fictionalText.split('');
-
-function displayText() {
-	let currentChar = textArray.shift();
-	const title = document.getElementById('title');
-	if (currentChar !== undefined) {
-		let span = document.createElement('span');
-		const index = Math.abs(textArray.length - 8) + 1;
-		span.innerHTML = currentChar;
-		span.style.animation = `title-animation ${index * 0.05}s`;
-
-		setTimeout(() => {
-			title.appendChild(span);
-
-			displayText();
-		}, 200);
-	}
-}
-displayText();
+const textArray = fictionalText.split('');
+const title = document.getElementById('title');
+const charsetList = document.getElementById('charsets');
+const charsetDetail = document.querySelector('.charset-detail span');
 
 const charsets = [
 	'A',
@@ -84,12 +69,39 @@ const charsets = [
 	9,
 ];
 
-let charsetHtml = '';
-for (let charset of charsets) {
-	charsetHtml += `
-        <li class="list">
-			<button>${charset}</button>
-		</li>
-    `;
+function displayText() {
+	let currentChar = textArray.shift();
+	if (currentChar !== undefined) {
+		const span = document.createElement('span');
+		const index = Math.abs(textArray.length - 8) + 1;
+		span.innerHTML = currentChar;
+		span.style.animation = `title-animation ${index * 0.05}s`;
+		setTimeout(() => {
+			title.appendChild(span);
+
+			displayText();
+		}, 200);
+	}
 }
-document.getElementById('charsets').innerHTML = charsetHtml;
+displayText();
+
+const charsetHtml = charsets
+	.map(
+		(charset) => `
+  <li class="list">
+    <button>${charset}</button>
+  </li>
+`
+	)
+	.join('');
+
+charsetList.innerHTML = charsetHtml;
+
+charsetList.addEventListener('click', (e) => {
+	if (!e.target.matches('button')) return;
+	charsetDetail.textContent = e.target.textContent;
+	charsetDetail.classList.add('charset-popUp');
+	setTimeout(() => {
+		charsetDetail.classList.remove('charset-popUp');
+	}, 200);
+});
