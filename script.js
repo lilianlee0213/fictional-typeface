@@ -61,12 +61,45 @@ const charsets = [
 	7,
 	8,
 	9,
+	'?',
+	'~',
+	'`',
+	'!',
+	'@',
+	'#',
+	'$',
+	'%',
+	'^',
+	'&',
+	'*',
+	'(',
+	')',
+	'-',
+	'_',
+	'+',
+	'=',
+	'[',
+	']',
+	'{',
+	'}',
+	'|',
+	'/',
+	'<',
+	'>',
+	':',
+	';',
+	'"',
+	"'",
 ];
 const title = document.getElementById('title');
+const styleBox = document.querySelector('.styles');
 const textBox = document.querySelector('.textBox-text');
 const weightInput = document.getElementById('weight-input');
+const charsetBox = document.querySelector('.charset');
 const charsetList = document.getElementById('charsets');
-const charsetDetail = document.querySelector('.charset-detail span');
+const charsetDetail = document.querySelector('.charset-detail ');
+const charsetDetailText = document.querySelector('.charset-detail span');
+const infoBox = document.querySelector('.info');
 const fictionalText = 'Fictional';
 const textArray = fictionalText.split('');
 
@@ -86,7 +119,6 @@ function displayText() {
 displayText();
 
 //Styles Font Weight Click Event
-const styleBox = document.querySelector('.styles');
 styleBox.addEventListener('click', (e) => {
 	const weight = e.target.dataset.fw;
 	textBox.style.fontFamily = weight;
@@ -131,9 +163,23 @@ charsetList.innerHTML = charsetHtml;
 
 charsetList.addEventListener('click', (e) => {
 	if (!e.target.matches('button')) return;
-	charsetDetail.textContent = e.target.textContent;
-	charsetDetail.classList.add('charset-popUp');
+	charsetDetailText.textContent = e.target.textContent;
+	charsetDetailText.classList.add('charset-popUp');
 	setTimeout(() => {
-		charsetDetail.classList.remove('charset-popUp');
+		charsetDetailText.classList.remove('charset-popUp');
 	}, 200);
 });
+const showCharsetDetail = () => {
+	const scrollPosition = window.scrollY + window.innerHeight - 180;
+	const shouldShowCharsetDetail =
+		window.matchMedia('(max-width: 701px)').matches &&
+		scrollPosition > charsetBox.offsetTop &&
+		scrollPosition < infoBox.offsetTop + 50;
+
+	charsetDetail.classList.toggle(
+		'charset-detail-visible',
+		shouldShowCharsetDetail
+	);
+};
+
+document.addEventListener('scroll', showCharsetDetail);
