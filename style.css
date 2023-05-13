@@ -671,3 +671,42 @@ input[type='range']::-webkit-slider-thumb {
 		top: 17px;
 	}
 }
+
+/* ---------------Notifications--------------- */
+.notifications {
+	position: fixed;
+	top: 100px;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 8px;
+	z-index: 400;
+}
+.notification {
+	width: fit-content;
+	background-color: #222;
+	padding: 2.5vw 3vw;
+	border-radius: 5vw;
+	color: var(--white);
+	font-family: fic500;
+	font-size: 4vw;
+	transition: all 0.3s ease-in-out;
+}
+.notification:hover {
+	transform: scale(1.1);
+}
+.notification i {
+	margin-left: 10px;
+	vertical-align: -1px;
+}
+@media (min-width: 701px) {
+	.notifications {
+		top: 120px;
+		right: 30px;
+	}
+	.notification {
+		padding: 0.75vw 1.5vw;
+		font-size: 1.5vw;
+	}
+}
