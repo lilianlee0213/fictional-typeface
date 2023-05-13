@@ -37,7 +37,7 @@
 	}
 	70% {
 		font-family: fic900;
-		transform: scale(1.4);
+		transform: scale(1.2);
 		text-shadow: rgba(0, 0, 0, 0.3) 2vw 2vw 0px;
 	}
 	100% {
@@ -442,7 +442,6 @@ input[type='range']::-webkit-slider-thumb {
 .charset-overview .list:focus {
 	border: 1px solid var(--yellow);
 }
-
 .charset-overview button {
 	padding: 0;
 	font-family: fic300;
@@ -455,29 +454,35 @@ input[type='range']::-webkit-slider-thumb {
 	color: var(--text-dark);
 }
 .charset-detail {
-	/* display: none; */
 	position: fixed;
-	bottom: 5%;
-	background-color: var(--yellow);
-	width: 35vw;
+	bottom: 10%;
+	width: 25vw;
 	aspect-ratio: 1;
 	border-radius: 15px;
+	transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+	visibility: hidden;
+	background-color: var(--yellow);
 }
 .charset-detail span {
 	font-family: fic500;
-	font-size: 25vw;
+	font-size: 17vw;
 	color: var(--text-dark);
 }
 .charset-popUp {
 	animation: charset-animation 0.4s cubic-bezier(0, 1.56, 0.64, 1) forwards;
 }
+.charset-detail-visible {
+	transform: scale(1.2);
+	visibility: visible;
+}
 @media (min-width: 701px) {
 	.section.charset {
 		display: flex;
-		gap: 80px;
+		justify-content: center;
+		align-items: center;
 	}
 	.charset-overview {
-		width: 70%;
+		width: 80%;
 		align-self: center;
 	}
 	.charset-overview ul {
@@ -491,13 +496,14 @@ input[type='range']::-webkit-slider-thumb {
 		font-size: 2vw;
 	}
 	.charset-detail {
-		position: relative;
+		position: inherit;
+		visibility: visible;
+		scale: 1;
 		background-color: transparent;
 	}
 	.charset-detail span {
-		position: absolute;
-		bottom: 3%;
-		font-size: 28vw;
+		padding-bottom: 5vw;
+		font-size: 22vw;
 		color: var(--white);
 	}
 }
