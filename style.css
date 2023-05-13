@@ -598,15 +598,15 @@ input[type='range']::-webkit-slider-thumb {
 	background-color: var(--white);
 }
 .toolbar-btn {
-	width: 8vw;
-	aspect-ratio: 1;
-	border-radius: 15px;
+	width: 50px;
+	height: 50px;
+	border-radius: 12px;
 	color: var(--text-dark);
-	font-size: 4vw;
+	font-size: 24px;
 	transition: all 0.3s ease-in-out;
 }
 .toolbar-btn:not(:last-child) {
-	margin-right: 1vw;
+	margin-right: 10px;
 }
 .select-mode {
 	border: solid 3px #ddd;
@@ -637,7 +637,7 @@ input[type='range']::-webkit-slider-thumb {
 .toolbar-btn::after {
 	position: fixed;
 	top: 0.6%;
-	padding-inline: 1.2vw;
+	padding-inline: 12px;
 	border-radius: 18px;
 	line-height: 1.5;
 	font-family: fic500;
@@ -647,18 +647,27 @@ input[type='range']::-webkit-slider-thumb {
 	background-color: var(--text-dark);
 }
 .select-mode:hover.select-mode::after {
-	right: 30%;
+	right: 185px;
 	content: 'Select mode';
 }
 .text-mode:hover.text-mode::after {
-	right: 20%;
+	right: 120px;
 	content: 'Text mode';
 }
 .fire-mode:hover.fire-mode::after {
-	right: 10%;
+	right: 60px;
 	content: 'Fire mode';
 }
 .refresh:hover.refresh::after {
-	right: 1%;
+	right: 0;
 	content: 'Refresh';
+}
+@media (min-width: 701px) {
+	.toolbar {
+		top: 30px;
+		right: 30px;
+	}
+	.toolbar-btn::after {
+		top: 17px;
+	}
 }
