@@ -1,5 +1,11 @@
 const editable = document.querySelectorAll('.editable');
 const textMode = document.querySelector('.text-mode');
+const selectMode = document.querySelector('.select-mode');
+const handleSelectMode = () => {
+	editable.forEach((item) => {
+		item.contentEditable = false;
+	});
+};
 
 textMode.addEventListener('click', () => {
 	editable.forEach((item) => {
@@ -15,3 +21,5 @@ textMode.addEventListener('click', () => {
 		});
 	});
 });
+
+selectMode.addEventListener('click', handleSelectMode);
