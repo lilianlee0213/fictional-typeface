@@ -1,13 +1,19 @@
 const editable = document.querySelectorAll('.editable');
-const textMode = document.querySelector('.text-mode');
 const selectMode = document.querySelector('.select-mode');
+const textMode = document.querySelector('.text-mode');
+const notifications = document.querySelector('.notifications');
+
+handleRemoveNotification = (event) => {
+	if (!event.target.matches('button')) return;
+	event.target.style.display = 'none';
+};
 const handleSelectMode = () => {
 	editable.forEach((item) => {
 		item.contentEditable = false;
 	});
 };
 
-textMode.addEventListener('click', () => {
+const handleTextMode = () => {
 	editable.forEach((item) => {
 		item.contentEditable = true;
 		const maxLength = item.textContent.trim().length;
@@ -20,6 +26,7 @@ textMode.addEventListener('click', () => {
 			}
 		});
 	});
-});
-
+};
+notifications.addEventListener('click', (e) => handleRemoveNotification(e));
+textMode.addEventListener('click', handleTextMode);
 selectMode.addEventListener('click', handleSelectMode);
