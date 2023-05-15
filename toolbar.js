@@ -5,13 +5,14 @@ const textMode = document.querySelector('.text-mode');
 const fireMode = document.querySelector('.fire-mode');
 const shootables = document.querySelectorAll('.shootable');
 const notifications = document.querySelector('.notifications');
-const shotAllNotification = document.querySelector('.notification-shotAll');
 const toolbarNotification = document.querySelector('.notification-toolbar');
 const textModeNotification = document.querySelector('.notification-text');
+const fireModeNotification = document.querySelector('.notification-fire');
+const shotAllNotification = document.querySelector('.notification-shotAll');
 const score = document.querySelector('.score');
 const links = document.querySelectorAll('a');
 let isFireMode = false;
-
+let isFireModeUnlocked = false;
 const handleToolbarUnlocked = () => {
 	if (scrollY > 300) {
 		toolbar.classList.add('toolbar-visible');
@@ -44,6 +45,12 @@ const handleTextMode = () => {
 			} else {
 				item.style.borderColor = '#00a3ff';
 			}
+			// when a user ever uses textMode, fireMode is unlocked
+			if (e.key === 'Backspace' && !isFireModeUnlocked) {
+				isFireModeUnlocked = true;
+				fireMode.disabled = false;
+				fireModeNotification.classList.add('unlocked');
+			}
 		});
 	});
 	score.classList.remove('score-active');
@@ -58,7 +65,6 @@ const shootThis = (event) => {
 	shootables.forEach((element) => {
 		if (!element.classList.contains('shot')) {
 			shotAll = false;
-			console.log(element);
 		}
 	});
 	if (shotAll) {

@@ -39,10 +39,15 @@
 .text-mode {
 	font-family: fic400;
 }
+.fire-mode[disabled='true'] {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
 .text-mode,
 .fire-mode {
 	background-color: #ddd;
 }
+
 .text-mode:hover,
 .text-mode:active,
 .text-mode:focus,
@@ -74,6 +79,9 @@
 	right: 120px;
 	content: 'Text mode';
 }
+.fire-mode[disabled='true']:hover.fire-mode::after {
+	content: '';
+}
 .fire-mode:hover.fire-mode::after {
 	right: 60px;
 	content: 'Fire mode';
@@ -98,19 +106,15 @@
 	}
 	.select-mode:hover.select-mode::after {
 		right: 120px;
-		content: 'Select mode';
 	}
 	.text-mode:hover.text-mode::after {
 		right: 80px;
-		content: 'Text mode';
 	}
 	.fire-mode:hover.fire-mode::after {
-		right: 30px;
-		content: 'Fire mode';
+		right: 40px;
 	}
 	.refresh:hover.refresh::after {
-		right: 0;
-		content: 'Refresh';
+		right: 0px;
 	}
 }
 @media (min-width: 701px) {
@@ -123,6 +127,22 @@
 	}
 	.toolbar-btn::after {
 		top: 17px;
+	}
+	.select-mode:hover.select-mode::after {
+		right: 200px;
+		content: 'Select mode';
+	}
+	.text-mode:hover.text-mode::after {
+		right: 140px;
+		content: 'Text mode';
+	}
+	.fire-mode:hover.fire-mode::after {
+		right: 80px;
+		content: 'Fire mode';
+	}
+	.refresh:hover.refresh::after {
+		right: 20px;
+		content: 'Refresh';
 	}
 }
 /* ---------------Toolbar-TextMode--------------- */
