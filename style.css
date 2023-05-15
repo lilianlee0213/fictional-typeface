@@ -668,6 +668,7 @@ input[type='range']::-webkit-slider-thumb {
 	right: 0;
 	content: 'Refresh';
 }
+
 @media (min-width: 701px) {
 	.toolbar {
 		top: 30px;
@@ -684,6 +685,41 @@ input[type='range']::-webkit-slider-thumb {
 }
 [contenteditable='true']:focus {
 	outline: none;
+}
+/* ---------------Score--------------- */
+.score {
+	position: fixed;
+	top: 2%;
+	right: 280px;
+	padding: 8px;
+	min-width: 3ch;
+	height: 75px;
+	border: 4px solid var(--text-dark);
+	border-radius: 15px;
+	font-size: 40px;
+	font-family: fic400;
+	color: var(--white);
+	text-align: center;
+	line-height: 1.2;
+	background-color: var(--red);
+	z-index: 400;
+}
+@media (max-width: 414px) {
+	.score {
+		padding: 0px;
+		height: 40px;
+		width: 40px;
+		min-width: inherit;
+		border-radius: 10px;
+		font-size: 25px;
+		line-height: 1.3;
+	}
+}
+@media (min-width: 701px) {
+	.score {
+		top: 30px;
+		right: 305px;
+	}
 }
 
 /* ---------------Notifications--------------- */
