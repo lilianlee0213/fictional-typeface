@@ -57,6 +57,7 @@
 	--black: #222222;
 	--text-dark: #000000;
 	--bg-color: #ffe9ce;
+	--transition: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .flex {
 	display: flex;
@@ -95,6 +96,7 @@ body {
 	font-size: 18vw;
 	font-family: fic700;
 	color: var(--text-dark);
+	z-index: 1;
 }
 
 .sticker-container {
@@ -202,6 +204,7 @@ polygon {
 	top: 40%;
 	right: -1%;
 	transform: rotate(10deg);
+	z-index: 2;
 }
 .sticker-5 .label {
 	background-color: var(--green);
@@ -464,7 +467,7 @@ input[type='range']::-webkit-slider-thumb {
 	width: 25vw;
 	aspect-ratio: 1;
 	border-radius: 15px;
-	transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+	transition: all 0.3s var(--transition);
 	visibility: hidden;
 	background-color: var(--yellow);
 }

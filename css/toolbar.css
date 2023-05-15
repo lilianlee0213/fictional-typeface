@@ -123,10 +123,14 @@
 [contenteditable='true']:focus {
 	outline: none;
 }
+/* ---------------Toolbar-FireMode--------------- */
+.shot {
+	visibility: hidden;
+}
 /* ---------------Score--------------- */
 .score {
+	top: -100px;
 	position: fixed;
-	top: 2%;
 	right: 280px;
 	padding: 8px;
 	min-width: 3ch;
@@ -140,6 +144,10 @@
 	line-height: 1.2;
 	background-color: var(--red);
 	z-index: 400;
+	transition: top 0.3s var(--transition);
+}
+.score-active {
+	top: 2%;
 }
 @media (max-width: 414px) {
 	.score {
@@ -155,8 +163,10 @@
 }
 @media (min-width: 701px) {
 	.score {
-		top: 30px;
 		right: 305px;
+	}
+	.score-active {
+		top: 30px;
 	}
 }
 /* ---------------Notifications--------------- */
@@ -171,6 +181,7 @@
 	z-index: 400;
 }
 .notification {
+	scale: 0;
 	width: fit-content;
 	background-color: #222;
 	padding: 2.5vw 3vw;
@@ -181,11 +192,16 @@
 	transition: all 0.3s ease-in-out;
 }
 .notification:hover {
-	transform: scale(1.1);
+	transform: scale(1.05);
 }
 .notification i {
 	margin-left: 10px;
 	vertical-align: -1px;
+}
+.unlocked {
+	visibility: visible;
+	scale: 1;
+	transition: all 0.7s var(--transition);
 }
 @media (max-width: 414px) {
 	.notifications {

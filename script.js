@@ -153,7 +153,7 @@ weightInput.addEventListener('input', () => {
 const charsetHtml = charsets
 	.map(
 		(charset) => `
-  <li class="list shootable" onclick="shootThis(event)">
+  <li class="list">
     <button>${charset}</button>
   </li>
 `
