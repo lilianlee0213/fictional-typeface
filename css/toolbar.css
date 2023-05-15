@@ -211,16 +211,16 @@
 	z-index: 400;
 }
 .notification {
-	visibility: hidden;
-	width: fit-content;
-	background-color: #222;
+	position: absolute;
 	padding: 2.5vw 3vw;
 	border-radius: 5vw;
-	color: var(--white);
 	font-family: fic500;
 	font-size: 4vw;
-	scale: 0;
-	transition: all 0.3s ease-in-out;
+	color: var(--white);
+	background-color: #222;
+	visibility: hidden;
+	transform: scale(0);
+	transition: all 0.3s var(--transition);
 }
 .notification:hover {
 	transform: scale(1.05);
@@ -230,8 +230,9 @@
 	vertical-align: -1px;
 }
 .unlocked {
+	position: static;
 	visibility: visible;
-	scale: 1;
+	transform: scale(1);
 	transition: all 0.7s var(--transition);
 }
 @media (max-width: 414px) {

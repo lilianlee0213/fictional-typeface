@@ -13,6 +13,7 @@ const score = document.querySelector('.score');
 const links = document.querySelectorAll('a');
 let isFireMode = false;
 let isFireModeUnlocked = false;
+
 const handleToolbarUnlocked = () => {
 	if (scrollY > 300) {
 		toolbar.classList.add('toolbar-visible');
@@ -69,6 +70,8 @@ const shootThis = (event) => {
 	});
 	if (shotAll) {
 		shotAllNotification.classList.add('unlocked');
+		score.textContent = 'HOORAY';
+		score.style.backgroundColor = '#3ccb09';
 	}
 };
 const activateFireMode = () => {
