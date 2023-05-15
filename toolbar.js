@@ -12,7 +12,6 @@ const handleSelectMode = () => {
 		item.contentEditable = false;
 	});
 };
-
 const handleTextMode = () => {
 	editable.forEach((item) => {
 		item.contentEditable = true;
