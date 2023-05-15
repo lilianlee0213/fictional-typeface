@@ -82,6 +82,9 @@ body {
 .section.info {
 	padding: 5vw;
 }
+.disabled-link {
+	pointer-events: none;
+}
 /* ---------------Section Intro--------------- */
 .section.intro {
 	position: relative;
