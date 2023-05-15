@@ -20,7 +20,7 @@ const handleToolbarUnlocked = () => {
 		window.removeEventListener('scroll', handleToolbarUnlocked);
 	}
 };
-handleRemoveNotification = (event) => {
+const handleRemoveNotification = (event) => {
 	if (!event.target.matches('button')) return;
 	event.target.style.display = 'none';
 };
