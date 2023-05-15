@@ -17,28 +17,18 @@ let isFireMode = false;
 let isFireModeUnlocked = false;
 let isRefreshed = false;
 
-const handleToolbarUnlocked = () => {
-	if (scrollY > 300) {
-		toolbar.classList.add('toolbar-visible');
-		toolbarNotification.classList.add('unlocked');
-		textModeNotification.classList.add('unlocked');
-		window.removeEventListener('scroll', handleToolbarUnlocked);
-	}
-};
-const handleRemoveNotification = (event) => {
-	if (!event.target.matches('button')) return;
-	event.target.style.display = 'none';
-};
+// Setting the original text to bring it back when isTextMode
 editable.forEach((item) => {
 	item.setAttribute('data-initial-text', item.innerHTML.trim(''));
 	if (!item.dataset.initialText) {
 		item.dataset.initialText = 'Fictional';
 	}
 });
+
+// Reset all the contents from textMode and fireMode
 const handleReset = () => {
 	refreshScreen.classList.add('restoring');
 	setTimeout(() => {
-		handleSelectMode();
 		editable.forEach((item) => {
 			item.innerHTML = item.dataset.initialText;
 		});
@@ -46,18 +36,23 @@ const handleReset = () => {
 			item.classList.remove('shot');
 		});
 		score.textContent = 0;
+		score.style.backgroundColor = '#fd4b38';
+		handleSelectMode();
+		shotAllNotification.classList.remove('unlocked');
 		refreshScreen.classList.remove('restoring');
 	}, 1500);
 	refreshMode.setAttribute('disabled', true);
 };
+
 const handleSelectMode = () => {
+	isFireMode = false;
 	editable.forEach((item) => {
 		item.contentEditable = false;
 	});
-	isFireMode = false;
 	links.forEach((link) => link.classList.remove('disabled-link'));
 	score.classList.remove('score-active');
 };
+
 const handleTextMode = () => {
 	isFireMode = false;
 	score.classList.remove('score-active');
@@ -83,33 +78,53 @@ const handleTextMode = () => {
 	});
 };
 
-const shootThis = (event) => {
-	let shotAll = true;
-	const targetElement = event.target.closest('.shootable');
-	if (isFireMode) {
-		targetElement.classList.add('shot');
-		score.textContent = Number(score.textContent) + 100;
-	}
-	shootables.forEach((element) => {
-		if (!element.classList.contains('shot')) {
-			shotAll = false;
-		} else {
-			refreshMode.disabled = false;
-		}
-	});
-	if (shotAll) {
-		shotAllNotification.classList.add('unlocked');
-		score.textContent = 'HOORAY';
-		score.style.backgroundColor = '#3ccb09';
-	}
-};
 const activateFireMode = () => {
+	// change other Mode to fireMode
 	isFireMode = true;
 	editable.forEach((item) => {
 		item.contentEditable = false;
 	});
 	score.classList.add('score-active');
 	links.forEach((link) => link.classList.add('disabled-link'));
+};
+
+const shootThis = (event) => {
+	let shots = 0;
+	// find shootable, add "shot": each shot will be 100 points
+	const targetElement = event.target.closest('.shootable');
+	if (isFireMode) {
+		targetElement.classList.add('shot');
+
+		score.textContent = Number(score.textContent) + 100;
+	}
+	// Count each shot to check if all shootables shots
+	shootables.forEach((element) => {
+		if (element.classList.contains('shot')) {
+			shots++;
+		}
+	});
+	if (shots === shootables.length) {
+		shotAllNotification.classList.add('unlocked');
+		score.textContent = 'HOORAY';
+		score.style.backgroundColor = '#3ccb09';
+	}
+	// allow refreshMode when any shot
+	refreshMode.disabled = false;
+};
+
+//add notification for toolbar and textMode when scroll
+const handleToolbarUnlocked = () => {
+	if (scrollY > 300) {
+		toolbar.classList.add('toolbar-visible');
+		toolbarNotification.classList.add('unlocked');
+		textModeNotification.classList.add('unlocked');
+		window.removeEventListener('scroll', handleToolbarUnlocked);
+	}
+};
+// remove notification
+const handleRemoveNotification = (event) => {
+	if (!event.target.matches('button')) return;
+	event.target.style.display = 'none';
 };
 
 window.addEventListener('scroll', handleToolbarUnlocked);
