@@ -120,6 +120,7 @@ displayText();
 
 //Styles Font Weight Click Event
 styleBox.addEventListener('click', (e) => {
+	if (!e.target.matches('button')) return;
 	const weight = e.target.dataset.fw;
 	textBox.style.fontFamily = weight;
 	weightInput.value =
