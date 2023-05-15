@@ -1,15 +1,22 @@
 /* ---------------Toolbar--------------- */
 .toolbar {
-	overflow-x: hidden;
 	position: fixed;
-	top: 2%;
+	top: -100px;
 	right: 1%;
 	padding: 8px;
 	border-radius: 15px;
 	border: solid 4px var(--text-dark);
-	z-index: 500;
 	background-color: var(--white);
+	z-index: 500;
+	visibility: hidden;
+	transition: all 0.8s var(--transition);
+	overflow-x: hidden;
 }
+.toolbar-visible {
+	visibility: visible;
+	top: 2%;
+}
+
 .toolbar-btn {
 	width: 50px;
 	height: 50px;
@@ -108,8 +115,11 @@
 }
 @media (min-width: 701px) {
 	.toolbar {
-		top: 30px;
 		right: 30px;
+	}
+	.toolbar-visible {
+		visibility: visible;
+		top: 30px;
 	}
 	.toolbar-btn::after {
 		top: 17px;
@@ -173,7 +183,7 @@
 .notifications {
 	position: fixed;
 	top: 100px;
-	right: 0;
+	right: 1%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -181,7 +191,7 @@
 	z-index: 400;
 }
 .notification {
-	scale: 0;
+	visibility: hidden;
 	width: fit-content;
 	background-color: #222;
 	padding: 2.5vw 3vw;
@@ -189,6 +199,7 @@
 	color: var(--white);
 	font-family: fic500;
 	font-size: 4vw;
+	scale: 0;
 	transition: all 0.3s ease-in-out;
 }
 .notification:hover {
