@@ -28,6 +28,10 @@
 .toolbar-btn:not(:last-child) {
 	margin-right: 10px;
 }
+.toolbar-btn[disabled='true'] {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
 .select-mode {
 	border: solid 3px #ddd;
 }
@@ -39,10 +43,7 @@
 .text-mode {
 	font-family: fic400;
 }
-.fire-mode[disabled='true'] {
-	opacity: 0.4;
-	cursor: not-allowed;
-}
+
 .text-mode,
 .fire-mode {
 	background-color: #ddd;
@@ -71,6 +72,9 @@
 	color: var(--white);
 	background-color: var(--text-dark);
 }
+.toolbar-btn[disabled='true']:hover.toolbar-btn::after {
+	content: '';
+}
 .select-mode:hover.select-mode::after {
 	right: 185px;
 	content: 'Select mode';
@@ -79,9 +83,7 @@
 	right: 120px;
 	content: 'Text mode';
 }
-.fire-mode[disabled='true']:hover.fire-mode::after {
-	content: '';
-}
+
 .fire-mode:hover.fire-mode::after {
 	right: 60px;
 	content: 'Fire mode';
@@ -249,4 +251,24 @@
 		padding: 1vw 1.5vw;
 		font-size: 1.8vw;
 	}
+}
+
+.refreshScreen {
+	position: fixed;
+	top: -150vh;
+	left: 0;
+	width: 100vw;
+	height: 150vh;
+	z-index: 1000;
+	background-color: var(--purple);
+	transition: all 1s var(--transition);
+}
+.restoring {
+	top: -25vh;
+}
+.refreshScreen-text {
+	font-size: 9vw;
+	font-family: fic500;
+	color: var(--white);
+	letter-spacing: 0.1vw;
 }

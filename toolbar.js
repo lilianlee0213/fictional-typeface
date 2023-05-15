@@ -1,9 +1,11 @@
 const toolbar = document.querySelector('.toolbar');
-const editable = document.querySelectorAll('.editable');
 const selectMode = document.querySelector('.select-mode');
 const textMode = document.querySelector('.text-mode');
 const fireMode = document.querySelector('.fire-mode');
+const refreshMode = document.querySelector('.refresh');
+const editable = document.querySelectorAll('.editable');
 const shootables = document.querySelectorAll('.shootable');
+const refreshScreen = document.querySelector('.refreshScreen');
 const notifications = document.querySelector('.notifications');
 const toolbarNotification = document.querySelector('.notification-toolbar');
 const textModeNotification = document.querySelector('.notification-text');
@@ -13,6 +15,7 @@ const score = document.querySelector('.score');
 const links = document.querySelectorAll('a');
 let isFireMode = false;
 let isFireModeUnlocked = false;
+let isRefreshed = false;
 
 const handleToolbarUnlocked = () => {
 	if (scrollY > 300) {
@@ -26,6 +29,27 @@ const handleRemoveNotification = (event) => {
 	if (!event.target.matches('button')) return;
 	event.target.style.display = 'none';
 };
+editable.forEach((item) => {
+	item.setAttribute('data-initial-text', item.innerHTML.trim(''));
+	if (!item.dataset.initialText) {
+		item.dataset.initialText = 'Fictional';
+	}
+});
+const handleReset = () => {
+	refreshScreen.classList.add('restoring');
+	setTimeout(() => {
+		handleSelectMode();
+		editable.forEach((item) => {
+			item.innerHTML = item.dataset.initialText;
+		});
+		shootables.forEach((item) => {
+			item.classList.remove('shot');
+		});
+		score.textContent = 0;
+		refreshScreen.classList.remove('restoring');
+	}, 1500);
+	refreshMode.setAttribute('disabled', true);
+};
 const handleSelectMode = () => {
 	editable.forEach((item) => {
 		item.contentEditable = false;
@@ -36,9 +60,10 @@ const handleSelectMode = () => {
 };
 const handleTextMode = () => {
 	isFireMode = false;
+	score.classList.remove('score-active');
 	editable.forEach((item) => {
-		item.contentEditable = true;
 		const maxLength = item.textContent.trim().length;
+		item.contentEditable = true;
 		item.addEventListener('keydown', (e) => {
 			if (item.textContent.trim().length > maxLength && e.key !== 'Backspace') {
 				item.style.borderColor = 'red';
@@ -49,13 +74,15 @@ const handleTextMode = () => {
 			// when a user ever uses textMode, fireMode is unlocked
 			if (e.key === 'Backspace' && !isFireModeUnlocked) {
 				isFireModeUnlocked = true;
-				fireMode.disabled = false;
+				fireMode.removeAttribute('disabled');
 				fireModeNotification.classList.add('unlocked');
 			}
+			//allow a user to refresh when keydown event
+			refreshMode.disabled = false;
 		});
 	});
-	score.classList.remove('score-active');
 };
+
 const shootThis = (event) => {
 	let shotAll = true;
 	const targetElement = event.target.closest('.shootable');
@@ -66,6 +93,8 @@ const shootThis = (event) => {
 	shootables.forEach((element) => {
 		if (!element.classList.contains('shot')) {
 			shotAll = false;
+		} else {
+			refreshMode.disabled = false;
 		}
 	});
 	if (shotAll) {
@@ -88,3 +117,4 @@ notifications.addEventListener('click', (e) => handleRemoveNotification(e));
 textMode.addEventListener('click', handleTextMode);
 selectMode.addEventListener('click', handleSelectMode);
 fireMode.addEventListener('click', activateFireMode);
+refreshMode.addEventListener('click', handleReset);

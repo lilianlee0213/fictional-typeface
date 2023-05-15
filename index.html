@@ -22,7 +22,7 @@
 			<button class="toolbar-btn fire-mode" title="Fire mode" disabled="true">
 				<i class="fa-solid fa-bullseye"></i>
 			</button>
-			<button class="toolbar-btn refresh" title="Refresh">
+			<button class="toolbar-btn refresh" title="Refresh" disabled="true">
 				<i class="fa-solid fa-arrow-rotate-left"></i>
 			</button>
 		</div>
@@ -32,7 +32,8 @@
 				id="title"
 				class="title editable shootable"
 				onclick="shootThis(event)"
-				contenteditable="false"></h1>
+				contenteditable="false"
+				data-initial-text="Fictional"></h1>
 			<div class="sticker-container">
 				<div class="sticker sticker-1 shootable" onclick="shootThis(event)">
 					<div class="round flex">
@@ -208,6 +209,9 @@
 				Congratulations! You shot 'em all!
 				<i class="fa-solid fa-xmark"></i>
 			</button>
+		</div>
+		<div class="refreshScreen flex">
+			<div class="refreshScreen-text">restore</div>
 		</div>
 		<script src="./script.js"></script>
 		<script src="./toolbar.js"></script>
