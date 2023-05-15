@@ -15,7 +15,6 @@ const score = document.querySelector('.score');
 const links = document.querySelectorAll('a');
 let isFireMode = false;
 let isFireModeUnlocked = false;
-let isRefreshed = false;
 
 // Setting the original text to bring it back when isTextMode
 editable.forEach((item) => {
@@ -40,8 +39,9 @@ const handleReset = () => {
 		handleSelectMode();
 		shotAllNotification.classList.remove('unlocked');
 		refreshScreen.classList.remove('restoring');
+		refreshMode.disabled = true;
 	}, 1500);
-	refreshMode.setAttribute('disabled', true);
+	// refreshMode.setAttribute('disabled', true);
 };
 
 const handleSelectMode = () => {
@@ -69,10 +69,10 @@ const handleTextMode = () => {
 			// when a user ever uses textMode, fireMode is unlocked
 			if (e.key === 'Backspace' && !isFireModeUnlocked) {
 				isFireModeUnlocked = true;
-				fireMode.removeAttribute('disabled');
+				fireMode.disabled = false;
 				fireModeNotification.classList.add('unlocked');
 			}
-			//allow a user to refresh when keydown event
+			// enable refreshmode when keydown event
 			refreshMode.disabled = false;
 		});
 	});
@@ -94,13 +94,14 @@ const shootThis = (event) => {
 	const targetElement = event.target.closest('.shootable');
 	if (isFireMode) {
 		targetElement.classList.add('shot');
-
 		score.textContent = Number(score.textContent) + 100;
 	}
 	// Count each shot to check if all shootables shots
 	shootables.forEach((element) => {
 		if (element.classList.contains('shot')) {
 			shots++;
+			// allow refreshMode when any shot
+			refreshMode.disabled = false;
 		}
 	});
 	if (shots === shootables.length) {
@@ -108,8 +109,6 @@ const shootThis = (event) => {
 		score.textContent = 'HOORAY';
 		score.style.backgroundColor = '#3ccb09';
 	}
-	// allow refreshMode when any shot
-	refreshMode.disabled = false;
 };
 
 //add notification for toolbar and textMode when scroll

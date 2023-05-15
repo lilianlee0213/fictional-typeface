@@ -28,7 +28,7 @@
 .toolbar-btn:not(:last-child) {
 	margin-right: 10px;
 }
-.toolbar-btn[disabled='true'] {
+.toolbar-btn:disabled {
 	opacity: 0.4;
 	cursor: not-allowed;
 }
@@ -72,8 +72,8 @@
 	color: var(--white);
 	background-color: var(--text-dark);
 }
-.toolbar-btn[disabled='true']:hover.toolbar-btn::after {
-	content: '';
+.toolbar-btn:disabled.toolbar-btn::after {
+	opacity: 0;
 }
 .select-mode:hover.select-mode::after {
 	right: 185px;
