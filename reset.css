@@ -138,7 +138,7 @@ button {
 	border: none;
 	background-color: transparent;
 	outline: none;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
 a {
 	text-decoration: none;

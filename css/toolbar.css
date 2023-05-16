@@ -2,7 +2,7 @@
 .toolbar {
 	position: fixed;
 	top: -100px;
-	right: 1%;
+	right: 30px;
 	padding: 8px;
 	border-radius: 15px;
 	border: solid 4px var(--text-dark);
@@ -14,7 +14,7 @@
 }
 .toolbar-visible {
 	visibility: visible;
-	top: 2%;
+	top: 30px;
 }
 
 .toolbar-btn {
@@ -62,7 +62,7 @@
 }
 .toolbar-btn::after {
 	position: fixed;
-	top: 0.6%;
+	top: 18px;
 	padding-inline: 12px;
 	border-radius: 18px;
 	line-height: 1.5;
@@ -76,20 +76,19 @@
 	opacity: 0;
 }
 .select-mode:hover.select-mode::after {
-	right: 185px;
+	right: 215px;
 	content: 'Select mode';
 }
 .text-mode:hover.text-mode::after {
-	right: 120px;
+	right: 145px;
 	content: 'Text mode';
 }
-
 .fire-mode:hover.fire-mode::after {
-	right: 60px;
+	right: 85px;
 	content: 'Fire mode';
 }
 .refresh:hover.refresh::after {
-	right: 0;
+	right: 15px;
 	content: 'Refresh';
 }
 @media (max-width: 414px) {
@@ -107,25 +106,21 @@
 		line-height: 2;
 	}
 	.select-mode:hover.select-mode::after {
-		right: 120px;
+		right: 140px;
 	}
 	.text-mode:hover.text-mode::after {
-		right: 80px;
+		right: 100px;
 	}
 	.fire-mode:hover.fire-mode::after {
-		right: 40px;
+		right: 60px;
 	}
 	.refresh:hover.refresh::after {
-		right: 0px;
+		right: 20px;
 	}
 }
 @media (min-width: 701px) {
-	.toolbar {
-		right: 30px;
-	}
 	.toolbar-visible {
 		visibility: visible;
-		top: 30px;
 	}
 	.toolbar-btn::after {
 		top: 17px;
@@ -151,6 +146,7 @@
 
 [contenteditable='true'] {
 	border: 6px dashed #00a3ff;
+	cursor: url('../assets/cursor-caret2.png') 18 18, auto !important;
 }
 [contenteditable='true']:focus {
 	outline: none;
@@ -161,9 +157,9 @@
 }
 /* ---------------Score--------------- */
 .score {
-	top: -100px;
 	position: fixed;
-	right: 280px;
+	top: -100px;
+	right: 305px;
 	padding: 8px;
 	min-width: 3ch;
 	height: 75px;
@@ -179,14 +175,14 @@
 	transition: top 0.3s var(--transition);
 }
 .score-active {
-	top: 2%;
+	top: 30px;
 }
 .score-animated {
 	animation: score-animation 0.4s forwards;
 }
 @media (max-width: 414px) {
 	.score {
-		right: 200px;
+		right: 220px;
 		padding: 0;
 		height: 55px;
 		width: 55px;
@@ -215,8 +211,8 @@
 /* ---------------Notifications--------------- */
 .notifications {
 	position: fixed;
-	top: 100px;
-	right: 1%;
+	top: 115px;
+	right: 30px;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
@@ -250,7 +246,7 @@
 }
 @media (max-width: 414px) {
 	.notifications {
-		top: 80px;
+		top: 95px;
 	}
 }
 @media (min-width: 701px) {

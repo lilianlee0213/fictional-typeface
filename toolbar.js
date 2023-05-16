@@ -1,6 +1,5 @@
 const toolbar = document.querySelector('.toolbar');
-const selectMode = document.querySelector('.select-mode');
-const textMode = document.querySelector('.text-mode');
+const modes = document.querySelector('.toolbar');
 const fireMode = document.querySelector('.fire-mode');
 const refreshMode = document.querySelector('.refresh');
 const editable = document.querySelectorAll('.editable');
@@ -17,45 +16,27 @@ const links = document.querySelectorAll('a');
 let isFireMode = false;
 let isFireModeUnlocked = false;
 
-// Setting the original text to bring it back when isTextMode
-editable.forEach((item) => {
-	item.setAttribute('data-initial-text', item.innerHTML.trim(''));
-	if (!item.dataset.initialText) {
-		item.dataset.initialText = 'Fictional';
+modes.addEventListener('click', function (e) {
+	const mode = e.target.closest('.toolbar-btn');
+	const body = document.querySelector('body');
+	mode.title !== 'Fire mode'
+		? body.classList.remove('body-firemode')
+		: body.classList.add('body-firemode');
+	switch (mode.title) {
+		case 'Select mode':
+			handleSelectMode();
+			break;
+		case 'Text mode':
+			handleTextMode();
+			break;
+		case 'Fire mode':
+			handleFireMode();
+			break;
+		case 'Refresh':
+			handleRefreshMode();
+			break;
 	}
 });
-
-// Reset all the contents from textMode and fireMode
-const handleReset = () => {
-	refreshScreen.classList.add('restoring');
-	handleRestoreAnimation();
-	setTimeout(() => {
-		editable.forEach((item) => {
-			item.innerHTML = item.dataset.initialText;
-		});
-		shootables.forEach((item) => {
-			item.classList.remove('shot');
-		});
-		score.textContent = 0;
-		score.style.backgroundColor = '#fd4b38';
-		handleSelectMode();
-		shotAllNotification.classList.remove('unlocked');
-		refreshScreen.classList.remove('restoring');
-		refreshMode.disabled = true;
-	}, 1500);
-};
-const handleRestoreAnimation = () => {
-	const refreshArray = refreshText.textContent.split('');
-	const refreshHtml = refreshArray
-		.map((letter, index) => {
-			index = index + 2;
-			const delay = index / 10;
-			return `<span style="animation-delay:${delay}s">${letter}</span>`;
-		})
-		.join('');
-	refreshText.innerHTML = refreshHtml;
-};
-
 const handleSelectMode = () => {
 	isFireMode = false;
 	editable.forEach((item) => {
@@ -65,12 +46,21 @@ const handleSelectMode = () => {
 	score.classList.remove('score-active');
 };
 
+// Setting the original text to bring it back when isTextMode
+editable.forEach((item) => {
+	item.setAttribute('data-initial-text', item.innerHTML.trim(''));
+	if (!item.dataset.initialText) {
+		item.dataset.initialText = 'Fictional';
+	}
+});
+
 const handleTextMode = () => {
 	isFireMode = false;
 	score.classList.remove('score-active');
 	editable.forEach((item) => {
 		const maxLength = item.textContent.trim().length;
 		item.contentEditable = true;
+		item.style.borderColor = '#00a3ff';
 		item.addEventListener('keydown', (e) => {
 			if (item.textContent.trim().length > maxLength && e.key !== 'Backspace') {
 				item.style.borderColor = 'red';
@@ -90,7 +80,7 @@ const handleTextMode = () => {
 	});
 };
 
-const activateFireMode = () => {
+const handleFireMode = () => {
 	// change other Mode to fireMode
 	isFireMode = true;
 	editable.forEach((item) => {
@@ -127,6 +117,40 @@ const shootThis = (event) => {
 	}
 };
 
+const handleRefreshMode = () => {
+	refreshScreen.classList.add('restoring');
+	handleRestoreAnimation();
+	setTimeout(handleReset, 1500);
+};
+
+// Reset all the contents from textMode and fireMode
+const handleReset = () => {
+	score.textContent = 0;
+	score.style.backgroundColor = '#fd4b38';
+	handleSelectMode();
+	editable.forEach((item) => {
+		item.innerHTML = item.dataset.initialText;
+	});
+	shootables.forEach((item) => {
+		item.classList.remove('shot');
+	});
+	shotAllNotification.classList.remove('unlocked');
+	refreshScreen.classList.remove('restoring');
+	document.querySelector('body').classList.remove('body-firemode');
+	refreshMode.disabled = true;
+};
+const handleRestoreAnimation = () => {
+	const refreshArray = refreshText.textContent.split('');
+	const refreshHtml = refreshArray
+		.map((letter, index) => {
+			index = index + 2;
+			const delay = index / 10;
+			return `<span style="animation-delay:${delay}s">${letter}</span>`;
+		})
+		.join('');
+	refreshText.innerHTML = refreshHtml;
+};
+
 //add notification for toolbar and textMode when scroll
 const handleToolbarUnlocked = () => {
 	if (scrollY > 300) {
@@ -144,7 +168,3 @@ const handleRemoveNotification = (event) => {
 
 window.addEventListener('scroll', handleToolbarUnlocked);
 notifications.addEventListener('click', (e) => handleRemoveNotification(e));
-textMode.addEventListener('click', handleTextMode);
-selectMode.addEventListener('click', handleSelectMode);
-fireMode.addEventListener('click', activateFireMode);
-refreshMode.addEventListener('click', handleReset);

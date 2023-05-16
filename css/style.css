@@ -65,6 +65,9 @@
 	justify-content: center;
 	align-items: center;
 }
+html {
+	cursor: url('../assets/cursor.png'), auto !important;
+}
 body {
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
@@ -72,6 +75,22 @@ body {
 	padding: 20px;
 	background-color: var(--white);
 	overflow-x: hidden;
+}
+.body-firemode {
+	cursor: url('../assets/cursor-fire2.png') 60 60, auto !important;
+}
+
+.body-firemode .section button,
+.body-firemode .section a {
+	cursor: url('../assets/cursor-fire2.png') 60 60, auto !important;
+}
+button,
+button i,
+a,
+input[type='range'],
+input[type='range']::-webkit-slider-thumb,
+.notifications {
+	cursor: url('../assets/cursor-pointer.png') 20 0, auto !important;
 }
 .section {
 	border-radius: 15px;
@@ -82,9 +101,6 @@ body {
 .section.charset,
 .section.info {
 	padding: 5vw;
-}
-.disabled-link {
-	pointer-events: none;
 }
 /* ---------------Section Intro--------------- */
 .section.intro {
@@ -336,6 +352,7 @@ polygon {
 }
 
 /* ---------------Section Styles--------------- */
+
 .section.styles {
 	gap: 25px;
 	background-color: var(--purple);
@@ -410,7 +427,10 @@ input[type='range']::-webkit-slider-thumb {
 	background: var(--text-dark);
 	cursor: pointer;
 }
-
+.body-firemode input[type='range'],
+.body-firemode input[type='range']::-webkit-slider-thumb {
+	cursor: url('../assets/cursor-fire2.png') 60 60, auto !important;
+}
 @media (min-width: 701px) {
 	.section.textBox {
 		grid-column: span 6;
