@@ -67,7 +67,7 @@ const handleTextMode = () => {
 	isFireMode = false;
 	score.classList.remove('score-active');
 	editable.forEach((item) => {
-		const maxLength = item.textContent.trim().length;
+		const maxLength = item.dataset.initialText.trim().length;
 		item.contentEditable = true;
 		item.style.borderColor = '#00a3ff';
 		item.addEventListener('keydown', (e) => {
