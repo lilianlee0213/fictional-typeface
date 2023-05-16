@@ -103,32 +103,16 @@ const infoBox = document.querySelector('.info');
 const fictionalText = 'Fictional';
 const textArray = fictionalText.split('');
 
-let isLoaded = false;
 function displayText() {
-	isLoaded = true;
-	if (isLoaded) {
-		const letters = textArray
-			.map((letter, index) => {
-				index = index + 2;
-				const delay = index / 10;
-				return `<span style="animation-delay: ${delay}s" >${letter}</span>`;
-			})
-			.join('');
-		title.innerHTML = letters;
-	}
-
-	// if (currentChar !== undefined) {
-	// 	const span = document.createElement('span');
-	// 	const index = Math.abs(textArray.length - 8) + 1;
-	// 	span.innerHTML = currentChar;
-	// 	span.style.animation = `title-animation ${index * 0.05}s`;
-	// 	setTimeout(() => {
-	// 		title.appendChild(span);
-	// 		displayText();
-	// 	}, 200);
-	// }
+	const letters = textArray
+		.map((letter, index) => {
+			index = index + 2;
+			const delay = index / 10;
+			return `<span style="animation-delay: ${delay}s" >${letter}</span>`;
+		})
+		.join('');
+	title.innerHTML = letters;
 }
-
 window.addEventListener('DOMContentLoaded', function () {
 	displayText();
 });

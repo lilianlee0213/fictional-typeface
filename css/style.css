@@ -18,25 +18,6 @@
 	font-family: fic900;
 	src: url(../fonts/FictionalTrial-UltraBold.otf);
 }
-/* ANIMATIONS */
-
-@keyframes charset-animation {
-	0% {
-		font-family: fic500;
-		transform: scale(0.4);
-		text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px;
-	}
-	70% {
-		font-family: fic900;
-		transform: scale(1.2);
-		text-shadow: rgba(0, 0, 0, 0.3) 2vw 2vw 0px;
-	}
-	100% {
-		font-family: fic700;
-		transform: scale(1);
-		text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px;
-	}
-}
 
 :root {
 	--white: #ffffff;
@@ -95,269 +76,6 @@ input[type='range']::-webkit-slider-thumb,
 .section.charset,
 .section.info {
 	padding: 5vw;
-}
-
-/* ---------------Section Intro--------------- */
-.section.intro {
-	position: relative;
-	height: calc(100vh - 40px);
-	background-color: var(--bg-color);
-}
-.title {
-	font-size: 18vw;
-	font-family: fic700;
-	color: var(--text-dark);
-	z-index: 1;
-}
-.title span {
-	/* opacity: 0; */
-	display: inline-block;
-	animation: title-animation 0.5s forwards;
-}
-@keyframes title-animation {
-	0%,
-	40%,
-	100% {
-		transform: translateY(0);
-	}
-	20% {
-		transform: translateY(-40px);
-	}
-}
-.sticker-container {
-	position: absolute;
-	height: 95%;
-	width: 100%;
-}
-.sticker {
-	position: absolute;
-}
-.round {
-	width: 30vw;
-	aspect-ratio: 1;
-	border-radius: 100%;
-}
-.round .text {
-	font-size: 7vw;
-	color: var(--white);
-}
-.speechbubble {
-	padding: 3vw;
-	border-radius: 50px;
-	text-align: center;
-	background-color: var(--white);
-}
-.speechbubble span {
-	display: inline-block;
-	min-width: 22ch;
-}
-.speechtriangle {
-	position: absolute;
-	width: 30%;
-	height: 25px;
-}
-polygon {
-	fill: var(--white);
-}
-.label {
-	width: fit-content;
-	padding: 2vw;
-	border-radius: 8px;
-}
-.label .text {
-	font-size: 3vw;
-}
-.text {
-	font-family: fic700;
-	text-transform: uppercase;
-	text-align: center;
-}
-.text-cap {
-	font-family: fic500;
-	font-size: 4vw;
-}
-.sticker-1 {
-	top: 2%;
-	left: 2%;
-	transform: rotate(-25deg);
-	z-index: 1;
-}
-.sticker-1 .round {
-	background-color: var(--green);
-}
-.sticker-2 {
-	top: 0;
-	left: 25%;
-	text-align: center;
-	transform: rotate(10deg);
-	height: 20;
-	color: var(--white);
-}
-.sticker-2 .text,
-.sticker-8 .text {
-	position: absolute;
-	top: 50%;
-	right: 50%;
-	transform: translate(50%, -50%);
-	font-size: 6vw;
-}
-.sticker-2 .shout {
-	width: 50vw;
-}
-.sticker-2 .shout path {
-	fill: var(--red);
-}
-.sticker-3 {
-	top: 14%;
-	right: -2%;
-	transform: rotate(30deg);
-}
-.sticker-3 .round {
-	background-color: var(--purple);
-}
-.sticker-4 {
-	top: 32%;
-	left: 3%;
-	transform: rotate(-8deg);
-}
-.sticker-4 .speechtriangle {
-	bottom: -20px;
-	right: 50px;
-	transform: rotate(85deg);
-}
-.sticker-5 {
-	top: 40%;
-	right: -1%;
-	transform: rotate(10deg);
-	z-index: 2;
-}
-.sticker-5 .label {
-	background-color: var(--green);
-}
-.sticker-6 {
-	bottom: 30%;
-	left: 25%;
-	transform: rotate(5deg);
-}
-.sticker-6 .speechtriangle {
-	top: -20px;
-	left: 30px;
-	transform: rotate(-10deg);
-}
-.sticker-7 {
-	bottom: 20%;
-	left: 1%;
-	transform: rotate(-15deg);
-	z-index: 1;
-}
-.sticker-7 .label {
-	background-color: var(--red);
-}
-.sticker-8 {
-	bottom: -2%;
-	left: 25%;
-	transform: rotate(-18deg);
-	font-family: fic900;
-	text-align: center;
-	color: var(--blue);
-}
-.sticker-8 .shout {
-	width: 45vw;
-}
-.sticker-8 .shout path {
-	fill: var(--yellow);
-}
-.sticker-9 {
-	bottom: -1%;
-	right: -1%;
-	transform: rotate(8deg);
-}
-.sticker-9 .round {
-	background-color: var(--purple);
-}
-.sticker-9 .round .text {
-	font-family: fic400;
-	text-transform: lowercase;
-}
-@media (min-width: 701px) {
-	.section.intro {
-		overflow: hidden;
-	}
-	.title {
-		font-size: 14vw;
-		z-index: 1;
-	}
-	.sticker-container {
-		height: min(50vw, 100%);
-	}
-	.round {
-		width: 10vw;
-	}
-	.round .text {
-		font-size: 2.5vw;
-	}
-	.speechbubble {
-		padding: 1.8vw;
-		border-radius: 60px;
-	}
-	.label {
-		padding: 1vw 2vw;
-	}
-	.label .text {
-		font-size: 1.5vw;
-	}
-	.text-cap {
-		font-size: 2.2vw;
-	}
-	.sticker-1 {
-		top: 36%;
-		left: 8%;
-	}
-	.sticker-2 {
-		top: 0;
-		left: 42%;
-	}
-	.sticker-2 .shout {
-		width: 23vw;
-	}
-	.sticker-2 .text {
-		font-size: 2vw;
-	}
-	.sticker-3 {
-		top: 28%;
-		right: 10%;
-	}
-	.sticker-4 {
-		top: 23%;
-		left: 5%;
-	}
-	.sticker-5 {
-		top: 30%;
-		right: 22%;
-	}
-	.sticker-6 {
-		left: 51%;
-		bottom: 17%;
-	}
-	.sticker-7 {
-		bottom: 32%;
-		left: inherit;
-		right: 7%;
-	}
-	.sticker-8 {
-		left: 20%;
-		bottom: 1%;
-	}
-	.sticker-8 .shout {
-		width: 28vw;
-	}
-	.sticker-8 .text {
-		font-size: 4vw;
-	}
-	.sticker-9 {
-		right: 48%;
-		bottom: 2%;
-	}
 }
 
 /* ---------------Section Styles--------------- */
@@ -544,6 +262,23 @@ input[type='range']::-webkit-slider-thumb {
 		color: var(--white);
 	}
 }
+@keyframes charset-animation {
+	0% {
+		font-family: fic500;
+		transform: scale(0.4);
+		text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px;
+	}
+	70% {
+		font-family: fic900;
+		transform: scale(1.2);
+		text-shadow: rgba(0, 0, 0, 0.3) 2vw 2vw 0px;
+	}
+	100% {
+		font-family: fic700;
+		transform: scale(1);
+		text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px;
+	}
+}
 
 /* ---------------Section Info--------------- */
 .section.info {
@@ -583,6 +318,7 @@ input[type='range']::-webkit-slider-thumb {
 	text-align: center;
 	color: var(--blue);
 	transition: all 0.25s ease-in-out;
+	opacity: 1;
 }
 .buyNow .sticker:hover {
 	transform: rotate(-20deg);
