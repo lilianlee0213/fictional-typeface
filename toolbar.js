@@ -58,8 +58,12 @@ const handleSelectMode = () => {
 // Setting the original text to bring it back when isTextMode
 editable.forEach((item) => {
 	item.setAttribute('data-initial-text', item.innerHTML.trim(''));
+	item.setAttribute('data-max-length', item.textContent.trim('').length);
 	if (!item.dataset.initialText) {
 		item.dataset.initialText = 'Fictional';
+	}
+	if (item.dataset.maxLength === '0') {
+		item.dataset.maxLength = 9;
 	}
 });
 
@@ -67,7 +71,7 @@ const handleTextMode = () => {
 	isFireMode = false;
 	score.classList.remove('score-active');
 	editable.forEach((item) => {
-		const maxLength = item.dataset.initialText.trim().length;
+		const maxLength = parseInt(item.dataset.maxLength);
 		item.contentEditable = true;
 		item.style.borderColor = '#00a3ff';
 		item.addEventListener('keydown', (e) => {

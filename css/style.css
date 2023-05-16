@@ -585,8 +585,8 @@ input[type='range']::-webkit-slider-thumb {
 	transition: all 0.25s ease-in-out;
 }
 .buyNow .sticker:hover {
-	transform: rotate(-15deg);
-	scale: 1.2;
+	transform: rotate(-20deg);
+	transform: scale(1.1);
 }
 .buyNow .sticker path {
 	fill: var(--yellow);
@@ -610,8 +610,9 @@ input[type='range']::-webkit-slider-thumb {
 	}
 	.buyNow .sticker {
 		position: absolute;
-		top: -20%;
+		bottom: 5%;
 		right: 2%;
+
 		width: 40vw;
 	}
 	.buyNow .text {
