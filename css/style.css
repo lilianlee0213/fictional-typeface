@@ -19,16 +19,7 @@
 	src: url(../fonts/FictionalTrial-UltraBold.otf);
 }
 /* ANIMATIONS */
-@keyframes title-animation {
-	0% {
-		/* opacity: 0; */
-		font-family: fic300;
-	}
-	100% {
-		/* opacity: 1; */
-		font-family: fic700;
-	}
-}
+
 @keyframes charset-animation {
 	0% {
 		font-family: fic500;
@@ -118,7 +109,21 @@ input[type='range']::-webkit-slider-thumb,
 	color: var(--text-dark);
 	z-index: 1;
 }
-
+.title span {
+	/* opacity: 0; */
+	display: inline-block;
+	animation: title-animation 0.5s forwards;
+}
+@keyframes title-animation {
+	0%,
+	40%,
+	100% {
+		transform: translateY(0);
+	}
+	20% {
+		transform: translateY(-40px);
+	}
+}
 .sticker-container {
 	position: absolute;
 	height: 95%;
