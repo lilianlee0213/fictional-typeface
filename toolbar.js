@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const toolbar = document.querySelector('.toolbar');
 const modes = document.querySelector('.toolbar');
 const fireMode = document.querySelector('.fire-mode');
@@ -18,11 +19,14 @@ let isFireModeUnlocked = false;
 
 modes.addEventListener('click', function (e) {
 	const mode = e.target.closest('.toolbar-btn');
-	const body = document.querySelector('body');
+	const isFireMode = mode.title === 'Fire mode';
+	const isTextMode = mode.title === 'Text mode';
 	if (mode.title !== 'Fire mode') {
 		body.classList.remove('body-firemode');
 	}
-
+	links.forEach((link) => {
+		link.setAttribute('aria-disabled', isFireMode || isTextMode);
+	});
 	switch (mode.title) {
 		case 'Select mode':
 			handleSelectMode();
@@ -140,7 +144,7 @@ const handleReset = () => {
 	});
 	shotAllNotification.classList.remove('unlocked');
 	refreshScreen.classList.remove('restoring');
-	document.querySelector('body').classList.remove('body-firemode');
+	body.classList.remove('body-firemode');
 	refreshMode.disabled = true;
 };
 const handleRestoreAnimation = () => {
