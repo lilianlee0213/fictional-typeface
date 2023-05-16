@@ -107,6 +107,10 @@ const shootThis = (event) => {
 	if (isFireMode) {
 		targetElement.classList.add('shot');
 		score.textContent = Number(score.textContent) + 100;
+		setTimeout(() => {
+			score.classList.add('score-animated');
+		});
+		score.classList.remove('score-animated');
 	}
 	// Count each shot to check if all shootables shots
 	shootables.forEach((element) => {
