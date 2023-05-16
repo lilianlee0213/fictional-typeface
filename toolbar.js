@@ -19,9 +19,10 @@ let isFireModeUnlocked = false;
 modes.addEventListener('click', function (e) {
 	const mode = e.target.closest('.toolbar-btn');
 	const body = document.querySelector('body');
-	mode.title !== 'Fire mode'
-		? body.classList.remove('body-firemode')
-		: body.classList.add('body-firemode');
+	if (mode.title !== 'Fire mode') {
+		body.classList.remove('body-firemode');
+	}
+
 	switch (mode.title) {
 		case 'Select mode':
 			handleSelectMode();
@@ -30,10 +31,15 @@ modes.addEventListener('click', function (e) {
 			handleTextMode();
 			break;
 		case 'Fire mode':
-			handleFireMode();
+			if (isFireModeUnlocked) {
+				handleFireMode();
+				body.classList.add('body-firemode');
+			}
 			break;
 		case 'Refresh':
-			handleRefreshMode();
+			if (!refreshMode.disabled) {
+				handleRefreshMode();
+			}
 			break;
 	}
 });
@@ -42,7 +48,6 @@ const handleSelectMode = () => {
 	editable.forEach((item) => {
 		item.contentEditable = false;
 	});
-	links.forEach((link) => link.classList.remove('disabled-link'));
 	score.classList.remove('score-active');
 };
 
@@ -87,7 +92,6 @@ const handleFireMode = () => {
 		item.contentEditable = false;
 	});
 	score.classList.add('score-active');
-	links.forEach((link) => link.classList.add('disabled-link'));
 };
 
 const shootThis = (event) => {
