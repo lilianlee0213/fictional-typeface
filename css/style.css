@@ -76,22 +76,22 @@ body {
 	background-color: var(--white);
 	overflow-x: hidden;
 }
-.body-firemode {
-	cursor: url('../assets/cursor-fire2.png') 60 60, auto !important;
-}
-
-.body-firemode .section button,
-.body-firemode .section a {
-	cursor: url('../assets/cursor-fire2.png') 60 60, auto !important;
-}
-button,
-button i,
+button:hover:not(:disabled),
 a,
 input[type='range'],
 input[type='range']::-webkit-slider-thumb,
 .notifications {
 	cursor: url('../assets/cursor-pointer.png') 20 0, auto !important;
 }
+.body-firemode {
+	cursor: url('../assets/cursor-fire2.png') 60 60, auto !important;
+}
+
+.body-firemode .section button:hover,
+.body-firemode .section a {
+	cursor: url('../assets/cursor-fire2.png') 60 60, auto !important;
+}
+
 .section {
 	border-radius: 15px;
 	grid-column: 1 / span 12;
@@ -102,6 +102,7 @@ input[type='range']::-webkit-slider-thumb,
 .section.info {
 	padding: 5vw;
 }
+
 /* ---------------Section Intro--------------- */
 .section.intro {
 	position: relative;
