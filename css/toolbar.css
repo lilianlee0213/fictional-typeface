@@ -272,3 +272,19 @@
 	color: var(--white);
 	letter-spacing: 0.1vw;
 }
+.restoring .refreshScreen-text span {
+	position: relative;
+	display: inline-block;
+	animation: refreshletter 0.5s var(--transition);
+}
+@keyframes refreshletter {
+	0% {
+		top: 0;
+	}
+	50% {
+		top: -0.7em;
+	}
+	100% {
+		top: 0;
+	}
+}

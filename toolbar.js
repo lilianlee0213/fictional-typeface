@@ -6,6 +6,7 @@ const refreshMode = document.querySelector('.refresh');
 const editable = document.querySelectorAll('.editable');
 const shootables = document.querySelectorAll('.shootable');
 const refreshScreen = document.querySelector('.refreshScreen');
+const refreshText = document.querySelector('.refreshScreen-text');
 const notifications = document.querySelector('.notifications');
 const toolbarNotification = document.querySelector('.notification-toolbar');
 const textModeNotification = document.querySelector('.notification-text');
@@ -27,6 +28,7 @@ editable.forEach((item) => {
 // Reset all the contents from textMode and fireMode
 const handleReset = () => {
 	refreshScreen.classList.add('restoring');
+	handleRestoreAnimation();
 	setTimeout(() => {
 		editable.forEach((item) => {
 			item.innerHTML = item.dataset.initialText;
@@ -41,7 +43,17 @@ const handleReset = () => {
 		refreshScreen.classList.remove('restoring');
 		refreshMode.disabled = true;
 	}, 1500);
-	// refreshMode.setAttribute('disabled', true);
+};
+const handleRestoreAnimation = () => {
+	const refreshArray = refreshText.textContent.split('');
+	const refreshHtml = refreshArray
+		.map((letter, index) => {
+			index = index + 2;
+			const delay = index / 10;
+			return `<span style="animation-delay:${delay}s">${letter}</span>`;
+		})
+		.join('');
+	refreshText.innerHTML = refreshHtml;
 };
 
 const handleSelectMode = () => {
