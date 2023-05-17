@@ -149,6 +149,7 @@ const handleRefreshMode = () => {
 
 // Reset all the contents from textMode and fireMode
 const handleReset = () => {
+	shots = 0;
 	score.textContent = 0;
 	score.style.backgroundColor = '#fd4b38';
 	handleSelectMode();
