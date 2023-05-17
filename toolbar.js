@@ -12,13 +12,21 @@ const toolbarNotification = document.querySelector('.notification-toolbar');
 const textModeNotification = document.querySelector('.notification-text');
 const fireModeNotification = document.querySelector('.notification-fire');
 const shotAllNotification = document.querySelector('.notification-shotAll');
+const fireAudio = document.querySelector('.fire-sound');
+const notiAudio = document.querySelector('.noti-sound');
+
+const restoreAudio = document.querySelector('.restore-sound');
 const score = document.querySelector('.score');
 const links = document.querySelectorAll('a');
+let shots = 0;
 let isFireMode = false;
 let isFireModeUnlocked = false;
 
 modes.addEventListener('click', function (e) {
 	const mode = e.target.closest('.toolbar-btn');
+	if (!mode) {
+		return;
+	}
 	const isFireMode = mode.title === 'Fire mode';
 	const isTextMode = mode.title === 'Text mode';
 	if (mode.title !== 'Fire mode') {
@@ -83,6 +91,7 @@ const handleTextMode = () => {
 			}
 			// when a user ever uses textMode, fireMode is unlocked
 			if (e.key === 'Backspace' && !isFireModeUnlocked) {
+				notiAudio.play();
 				isFireModeUnlocked = true;
 				fireMode.disabled = false;
 				fireModeNotification.classList.add('unlocked');
@@ -103,37 +112,38 @@ const handleFireMode = () => {
 };
 
 const shootThis = (event) => {
-	let shots = 0;
 	// find shootable, add "shot": each shot will be 100 points
 	const targetElement = event.target.closest('.shootable');
 	if (isFireMode) {
+		fireAudio.play();
+		shots = shots + 1;
 		targetElement.classList.add('shot');
 		score.textContent = Number(score.textContent) + 100;
 		score.classList.add('score-animated');
 		body.classList.add('body-shotfired');
+
 		setTimeout(() => {
 			score.classList.remove('score-animated');
 			body.classList.remove('body-shotfired');
-		}, 200);
+		}, 300);
 	}
-	// Count each shot to check if all shootables shots
-	shootables.forEach((element) => {
-		if (element.classList.contains('shot')) {
-			shots++;
-			// allow refreshMode when any shot
-			refreshMode.disabled = false;
-		}
-	});
+	if (shots > 0) {
+		refreshMode.disabled = false;
+	}
 	if (shots === shootables.length) {
-		shotAllNotification.classList.add('unlocked');
 		score.textContent = 'HOORAY';
 		score.style.backgroundColor = '#3ccb09';
+		shotAllNotification.classList.add('unlocked');
+		setTimeout(() => {
+			notiAudio.play();
+		}, 300);
 	}
 };
 
 const handleRefreshMode = () => {
 	refreshScreen.classList.add('restoring');
 	handleRestoreAnimation();
+	restoreAudio.play();
 	setTimeout(handleReset, 1500);
 };
 
@@ -167,12 +177,11 @@ const handleRestoreAnimation = () => {
 
 //add notification for toolbar and textMode when scroll
 const handleToolbarUnlocked = () => {
-	if (scrollY > 300) {
-		toolbar.classList.add('toolbar-visible');
-		toolbarNotification.classList.add('unlocked');
-		textModeNotification.classList.add('unlocked');
-		window.removeEventListener('scroll', handleToolbarUnlocked);
-	}
+	toolbar.classList.add('toolbar-visible');
+	toolbarNotification.classList.add('unlocked');
+	textModeNotification.classList.add('unlocked');
+	notiAudio.play();
+	body.removeEventListener('click', handleToolbarUnlocked);
 };
 // remove notification
 const handleRemoveNotification = (event) => {
@@ -180,5 +189,6 @@ const handleRemoveNotification = (event) => {
 	event.target.style.display = 'none';
 };
 
-window.addEventListener('scroll', handleToolbarUnlocked);
+// window.addEventListener('scroll', handleToolbarUnlocked);
+body.addEventListener('click', handleToolbarUnlocked);
 notifications.addEventListener('click', (e) => handleRemoveNotification(e));
