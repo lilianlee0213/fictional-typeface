@@ -131,7 +131,7 @@ const shootThis = (event) => {
 		refreshMode.disabled = false;
 	}
 	if (shots === shootables.length) {
-		score.textContent = 'HOORAY';
+		score.textContent = 'YAY';
 		score.style.backgroundColor = '#3ccb09';
 		shotAllNotification.classList.add('unlocked');
 		setTimeout(() => {

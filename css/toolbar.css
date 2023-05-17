@@ -210,11 +210,11 @@
 	height: 75px;
 	border: 4px solid var(--text-dark);
 	border-radius: 15px;
-	font-size: 40px;
+	font-size: 28px;
 	font-family: fic400;
 	color: var(--white);
 	text-align: center;
-	line-height: 1.2;
+	line-height: 1.8;
 	background-color: var(--red);
 	z-index: 400;
 	transition: top 0.3s var(--transition);
@@ -233,13 +233,15 @@
 		width: 55px;
 		min-width: inherit;
 		border-radius: 10px;
-		font-size: 25px;
-		line-height: 1.7;
+		font-size: 20px;
+		line-height: 2.3;
 	}
 }
 @media (min-width: 701px) {
 	.score {
 		right: 305px;
+		font-size: 40px;
+		line-height: 1.2;
 	}
 	.score-active {
 		top: 30px;
