@@ -413,6 +413,12 @@ footer {
 	font-size: 16px;
 	text-align: center;
 }
+footer p:first-child {
+	margin-bottom: 0.2rem;
+}
+footer a {
+	color: var(--blue);
+}
 @media (max-width: 490px) {
 	footer {
 		margin-top: 0;
