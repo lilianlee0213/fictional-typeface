@@ -1,7 +1,7 @@
 # fictional-typeface
 
 ![Alt Text](./assets/images/fictional-readMe.png)
-This project is a website that allows users to explore a fictional typeface and interact with it in various modes. The website was constructed using HTML, CSS, and JavaScript, taking inspiration from an existing [Fictional Typeface](https://fictional-typeface.com/) website.
+This project is a website that allows users to explore a fictional typeface and interact with it in various modes.
 
 ## Features
 
@@ -16,3 +16,7 @@ This project is a website that allows users to explore a fictional typeface and 
 ## Live Site
 
 You can access the live site [here](https://fictional-typeface-clone-by-lilianlee.netlify.app).
+
+## Reference
+
+The website was constructed using HTML, CSS, and JavaScript, taking inspiration from an existing [Fictional Typeface](https://fictional-typeface.com/) website.
