@@ -91,7 +91,7 @@
 .select-mode:hover,
 .select-mode:active,
 .select-mode:focus {
-	border: solid 4px #666;
+	border: solid 2px #666;
 }
 .text-mode {
 	font-family: fic400;
