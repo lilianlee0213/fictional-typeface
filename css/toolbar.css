@@ -91,7 +91,7 @@
 .select-mode:hover,
 .select-mode:active,
 .select-mode:focus {
-	border: solid 2px #666;
+	border: solid 3px #666;
 }
 .text-mode {
 	font-family: fic400;
@@ -157,6 +157,11 @@
 	.toolbar-btn::after {
 		font-size: 12px;
 		line-height: 2;
+	}
+	.select-mode:hover,
+	.select-mode:active,
+	.select-mode:focus {
+		border: solid 1.5px #666;
 	}
 	.select-mode:hover.select-mode::after {
 		right: 140px;
