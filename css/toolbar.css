@@ -46,6 +46,10 @@
 /* ---------------Toolbar--------------- */
 .toolbar {
 	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
 	top: -100px;
 	right: 30px;
 	padding: 8px;
@@ -63,15 +67,16 @@
 }
 
 .toolbar-btn {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 50px;
 	height: 50px;
 	border-radius: 12px;
 	color: var(--text-dark);
 	font-size: 24px;
 	transition: all 0.3s ease-in-out;
-}
-.toolbar-btn:not(:last-child) {
-	margin-right: 10px;
 }
 .toolbar-btn:disabled {
 	opacity: 0.4;
@@ -227,7 +232,7 @@
 }
 @media (max-width: 414px) {
 	.score {
-		right: 220px;
+		left: 30px;
 		padding: 0;
 		height: 55px;
 		width: 55px;
