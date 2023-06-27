@@ -85,9 +85,6 @@
 .select-mode {
 	border: solid 2px #ddd;
 }
-.select-mode i {
-	font-size: 14px;
-}
 .select-mode:hover,
 .select-mode:active,
 .select-mode:focus {
@@ -158,10 +155,16 @@
 		font-size: 12px;
 		line-height: 2;
 	}
+	.select-mode {
+		border: none;
+		background-color: #ddd;
+		opacity: 0.8;
+	}
 	.select-mode:hover,
 	.select-mode:active,
 	.select-mode:focus {
-		border: solid 1.5px #666;
+		border: none;
+		opacity: 1;
 	}
 	.select-mode:hover.select-mode::after {
 		right: 140px;
