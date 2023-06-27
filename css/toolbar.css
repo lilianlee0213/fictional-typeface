@@ -83,7 +83,10 @@
 	cursor: not-allowed;
 }
 .select-mode {
-	border: solid 3px #ddd;
+	border: solid 2px #ddd;
+}
+.select-mode i {
+	font-size: 14px;
 }
 .select-mode:hover,
 .select-mode:active,
