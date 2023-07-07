@@ -115,13 +115,13 @@ const shootThis = (event) => {
 	// find shootable, add "shot": each shot will be 100 points
 	const targetElement = event.target.closest('.shootable');
 	if (isFireMode) {
+		fireAudio.currentTime = 0;
 		fireAudio.play();
 		shots = shots + 1;
 		targetElement.classList.add('shot');
 		score.textContent = Number(score.textContent) + 100;
 		score.classList.add('score-animated');
 		body.classList.add('body-shotfired');
-
 		setTimeout(() => {
 			score.classList.remove('score-animated');
 			body.classList.remove('body-shotfired');
